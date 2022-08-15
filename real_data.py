@@ -22,8 +22,8 @@ from sklearn.model_selection import GridSearchCV
 from scipy.stats import wilcoxon
 
 data_file_dir = "./dataset/density_dataset"
-data_file_name_seq = ['ionosphere.csv','adult.csv','abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
-#data_file_name_seq=["lympho.csv","cardio.csv", "thyroid.csv","vowels.csv", "glass.csv", "musk.csv","letter.csv", "pima.csv", "satellite.csv", "pendigits.csv", "yeast.csv", "heart.csv"]
+#data_file_name_seq = ['ionosphere.csv','adult.csv','abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
+data_file_name_seq=["lympho.csv","cardio.csv", "thyroid.csv","vowels.csv", "glass.csv", "musk.csv","letter.csv", "pima.csv", "satellite.csv", "pendigits.csv", "yeast.csv", "heart.csv"]
 #data_file_name_seq=['ionosphere.csv','adult.csv', 'winequality.csv']
 
 log_file_dir = "./realdata_result/"
