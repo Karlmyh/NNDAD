@@ -27,7 +27,7 @@ dim_vec=[2,5,8]
 
 distribution_index_vec=[4,7,8,9,12,13,17]
 repeat_time=10
-cv_criterion="L2"
+cv_criterion="MISE"
 
 log_file_dir = "./simulation_result/"
 
@@ -51,7 +51,7 @@ for dim_iter,dim in enumerate(dim_vec):
             X_test, pdf_X_test = density.generate(n_test)
             
             #### score mae mse    method time C(parameter) iter ntrain ntest
-            
+            '''
             # AWNN
             time_start=time.time()
             parameters={"C":[i for i in np.logspace(-1.5,1.5,15)]}
@@ -64,7 +64,7 @@ for dim_iter,dim in enumerate(dim_vec):
             _=model_AWNN.score(X_test)
             with open(log_file_path, "a") as f:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{},{},{},{},{}\n".format(distribution_index,dim,
-                                              model_AWNN.ANLL,-model_AWNN.L2,mae(np.exp(model_AWNN.log_density),pdf_X_test),
+                                              model_AWNN.ANLL,-model_AWNN.MISE,mae(np.exp(model_AWNN.log_density),pdf_X_test),
                                               mse(np.exp(model_AWNN.log_density),pdf_X_test),time_end-time_start,
                                               cv_model_AWNN.best_params_["C"],iterate,n_train,n_test)
                 f.writelines(logs)
@@ -83,7 +83,7 @@ for dim_iter,dim in enumerate(dim_vec):
             _=model_KNN.score(X_test)
             with open(log_file_path, "a") as f:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{},{},{},{},{}\n".format(distribution_index,dim,
-                                              model_KNN.ANLL,-model_KNN.L2,mae(np.exp(model_KNN.log_density),pdf_X_test),
+                                              model_KNN.ANLL,-model_KNN.MISE,mae(np.exp(model_KNN.log_density),pdf_X_test),
                                               mse(np.exp(model_KNN.log_density),pdf_X_test),time_end-time_start,
                                               cv_model_KNN.best_params_["k"],iterate,n_train,n_test)
                 f.writelines(logs)
@@ -101,7 +101,7 @@ for dim_iter,dim in enumerate(dim_vec):
             _=model_WKNN.score(X_test)
             with open(log_file_path, "a") as f:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{},{},{},{},{}\n".format(distribution_index,dim,
-                                              model_WKNN.ANLL,-model_WKNN.L2,mae(np.exp(model_WKNN.log_density),pdf_X_test),
+                                              model_WKNN.ANLL,-model_WKNN.MISE,mae(np.exp(model_WKNN.log_density),pdf_X_test),
                                               mse(np.exp(model_WKNN.log_density),pdf_X_test),time_end-time_start,
                                               cv_model_WKNN.best_params_["k"],iterate,n_train,n_test)
                 f.writelines(logs)
@@ -121,7 +121,7 @@ for dim_iter,dim in enumerate(dim_vec):
             _=model_AKNN.score(X_test)
             with open(log_file_path, "a") as f:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{},{},{},{},{}\n".format(distribution_index,dim,
-                                              model_AKNN.ANLL,-model_AKNN.L2,mae(np.exp(model_AKNN.log_density),pdf_X_test),
+                                              model_AKNN.ANLL,-model_AKNN.MISE,mae(np.exp(model_AKNN.log_density),pdf_X_test),
                                               mse(np.exp(model_AKNN.log_density),pdf_X_test),time_end-time_start,
                                               cv_model_AKNN.best_params_["k"],iterate,n_train,n_test)
                 f.writelines(logs)
@@ -158,12 +158,27 @@ for dim_iter,dim in enumerate(dim_vec):
             _=model_AKDE.score(X_test)
             with open(log_file_path, "a") as f:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{},{},{},{},{}\n".format(distribution_index,dim,
-                                              model_AKDE.ANLL,-model_AKDE.L2,mae(np.exp(model_AKDE.log_density),pdf_X_test),
+                                              model_AKDE.ANLL,-model_AKDE.MISE,mae(np.exp(model_AKDE.log_density),pdf_X_test),
                                               mse(np.exp(model_AKDE.log_density),pdf_X_test),time_end-time_start,
                                               cv_model_AKDE.best_params_["k"],iterate,n_train,n_test)
                 f.writelines(logs)
-            
-            
+            '''
+            # BKNN
+            time_start=time.time()
+            parameters={"C":[0.1,0.01,1,10,100]}
+            cv_model_KNN=GridSearchCV(estimator=KNN(),param_grid=parameters,n_jobs=-1,cv=10)
+            cv_model_KNN.fit(X_train,method="BKNN")
+            time_end=time.time()
+            log_file_name = "{}.csv".format("BKNN")
+            log_file_path = os.path.join(log_file_dir, log_file_name)
+            model_KNN=cv_model_KNN.best_estimator_
+            _=model_KNN.score(X_test)
+            with open(log_file_path, "a") as f:
+                logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{},{},{},{},{}\n".format(distribution_index,dim,
+                                              model_KNN.ANLL,-model_KNN.MISE,mae(np.exp(model_KNN.log_density),pdf_X_test),
+                                              mse(np.exp(model_KNN.log_density),pdf_X_test),time_end-time_start,
+                                              cv_model_KNN.best_params_["C"],iterate,n_train,n_test)
+                f.writelines(logs)
             
             
        

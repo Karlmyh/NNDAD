@@ -215,16 +215,17 @@ def bknn(X,tree,n,dim,vol_unitball,**kwargs):
     for x in X:
         
         distance_vec,_=tree.query(x.reshape(1,-1),kwargs["kmax"])
-        
-        if distance_vec[0,0]==0:
+        distance_vec=distance_vec[0]
+        if distance_vec[0]==0:
             distance_vec=distance_vec[1:]
         k_temp=1
-        while distance_vec[0,k_temp-1]*k_temp<C2 and k_temp<kwargs["kmax"]:
+       
+        while distance_vec[k_temp-1]*k_temp<C2 and k_temp<kwargs["kmax"]-1:
             k_temp+=1
             
   
    
-        log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[0,k_temp]**dim)+1e-30))
+        log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
    
         
     return np.array(log_density)

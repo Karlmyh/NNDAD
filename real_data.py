@@ -9,7 +9,7 @@ from sklearn.decomposition import PCA
 
 import numpy as np
 import os
-import time
+
 import scipy
 import math
 
@@ -22,9 +22,9 @@ from sklearn.model_selection import GridSearchCV
 from scipy.stats import wilcoxon
 
 data_file_dir = "./dataset/density_dataset"
-#data_file_name_seq = ['ionosphere.csv','adult.csv','abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
+data_file_name_seq = ['ionosphere.csv','adult.csv','abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
 #data_file_name_seq=["lympho.csv","cardio.csv", "thyroid.csv","vowels.csv", "glass.csv", "musk.csv","letter.csv", "pima.csv", "satellite.csv", "pendigits.csv", "yeast.csv", "heart.csv"]
-data_file_name_seq=['ionosphere.csv','adult.csv', 'winequality.csv']
+#data_file_name_seq=['ionosphere.csv','adult.csv', 'winequality.csv']
 
 log_file_dir = "./realdata_result/"
 
@@ -260,7 +260,29 @@ def calculate_score_largedata(X_train, X_test):
     return L2_vec,ANLL_vec,time_vec,params_vec
 
 
+def function_for_bknn(X_train,X_test):
+    
+    n_train=X_train.shape[0]
 
+    
+    time_start=time.time()
+    L2_valid = []
+    C_vec=[0.01,0.1,1,10]
+    for C in C_vec:
+        model=KNN(C=C)
+        model.fit(X_train,method="BKNN")
+        L2_valid.append(model.compute_MISE(X_train))
+    idx=np.array(L2_valid).argmin()
+    best_C=C_vec[idx]
+    model_BKNN=KNN(C=best_C)
+    model_BKNN.fit(X_train)
+    L2=model_BKNN.score(X_test)
+    time_end=time.time()
+    
+    
+   
+    
+    return -L2, model_BKNN.ANLL,time_end-time_start,best_C
 
 for data_file_name in data_file_name_seq:
     # load dataset
@@ -287,6 +309,14 @@ for data_file_name in data_file_name_seq:
             transformed_data = transformer.fit_transform(data)
             train_X, test_X = train_test_split(transformed_data, train_size=0.7, test_size=0.3)
             # estimation
+            L2,ANLL,time_cose,params= function_for_bknn(train_X, test_X)
+            log_file_name = "realdata_BKNN.csv"
+            log_file_path = os.path.join(log_file_dir, log_file_name)
+            with open(log_file_path, "a") as f:
+                logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{}\n".format(data_file_name.split(".")[0],dim,
+                                              ANLL,L2,time_cose,params,i)
+                f.writelines(logs)
+            '''
             if train_X.shape[0]<100:
                 L2_vec,ANLL_vec,time_vec,params_vec= calculate_score(train_X, test_X)
             else:
@@ -337,3 +367,4 @@ for data_file_name in data_file_name_seq:
                                               ANLL_vec[5],L2_vec[5],time_vec[5],params_vec[5],i)
                 f.writelines(logs)
         
+            '''
