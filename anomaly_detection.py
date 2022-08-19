@@ -82,8 +82,6 @@ def calculate_auc(X_train,y_train):
         model_AWNN=AWNN(C=C).fit(X_train,max_neighbors=X_train.shape[0]-1)
         scaler=MinMaxScaler()
         y_pred=scaler.fit_transform(model_AWNN.predict(X_train).reshape(-1,1))
-        print(y_pred)
-        y_pred[y_pred==0]=1
         roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
             
     roc_auc_vec.append(roc_auc)
@@ -92,7 +90,7 @@ def calculate_auc(X_train,y_train):
     roc_auc=0
     for C in [0.01,0.1,1,10,100]:
         for k in [1,2,3]:
-            model_AKDE=AKDE(c=C,k=k).fit(X_train,max_neighbors=X_train.shape[0]-1)
+            model_AKDE=AKDE(c=C,k=k).fit(X_train)
             scaler=MinMaxScaler()
             y_pred=scaler.fit_transform(model_AKDE.predict(X_train).reshape(-1,1))
             roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
