@@ -11,6 +11,8 @@ from sklearn.svm import OneClassSVM
 from sklearn.neighbors import KDTree
 from scipy.stats import rankdata
 from AWNN import AWNN
+from KNN import KNN 
+from AKDE import AKDE
 
 
 import pandas as pd
@@ -80,7 +82,30 @@ def calculate_auc(X_train,y_train):
         model_AWNN=AWNN(C=C).fit(X_train,max_neighbors=X_train.shape[0]-1)
         scaler=MinMaxScaler()
         y_pred=scaler.fit_transform(model_AWNN.predict(X_train).reshape(-1,1))
+        print(y_pred)
         y_pred[y_pred==0]=1
+        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+            
+    roc_auc_vec.append(roc_auc)
+    
+    # AKDE
+    roc_auc=0
+    for C in [0.01,0.1,1,10,100]:
+        for k in [1,2,3]:
+            model_AKDE=AKDE(c=C,k=k).fit(X_train,max_neighbors=X_train.shape[0]-1)
+            scaler=MinMaxScaler()
+            y_pred=scaler.fit_transform(model_AKDE.predict(X_train).reshape(-1,1))
+            roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+            
+    roc_auc_vec.append(roc_auc)
+    
+    # BKNN
+    roc_auc=0
+    for C in [i for i in np.logspace(-2,2,10)]:
+        model_BKNN=KNN(C=C).fit(X_train)
+        scaler=MinMaxScaler()
+        y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
+        #y_pred[y_pred==0]=1
         roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
             
     roc_auc_vec.append(roc_auc)
@@ -103,11 +128,14 @@ for data_file_name in data_file_name_seq:
     log_file_name = "anomaly.csv"
     log_file_path = os.path.join(log_file_dir, log_file_name)
     with open(log_file_path, "a") as f:
-        logs= "{},{},{},{},{},{},{},{},{},{},{}\n".format(data_file_name.split(".")[0],
+        logs= "{},{},{},{},{},{},{},{},".format(data_file_name.split(".")[0],
                                         roc_auc_vec[0],roc_auc_vec[1], roc_auc_vec[2],roc_auc_vec[3],
-                                        roc_auc_vec[4],6-rankdata(roc_auc_vec)[0],
-                                        6-rankdata(roc_auc_vec)[1],6-rankdata(roc_auc_vec)[2],
-                                        6-rankdata(roc_auc_vec)[3],6-rankdata(roc_auc_vec)[4])
+                                        roc_auc_vec[4],roc_auc_vec[5],roc_auc_vec[6])
+        f.writelines(logs)
+        logs= "{},{},{},{},{},{},{}\n".format(8-rankdata(roc_auc_vec)[0],
+        8-rankdata(roc_auc_vec)[1],8-rankdata(roc_auc_vec)[2],
+        8-rankdata(roc_auc_vec)[3],8-rankdata(roc_auc_vec)[4],
+        8-rankdata(roc_auc_vec)[5],8-rankdata(roc_auc_vec)[6])
         f.writelines(logs)
         
 
