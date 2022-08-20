@@ -88,8 +88,8 @@ def calculate_auc(X_train,y_train):
     
     # AKDE
     roc_auc=0
-    for C in [0.01,0.1,1,10,100]:
-        for k in [1,2,3]:
+    for C in [0.1,1,10]:
+        for k in [1,3]:
             model_AKDE=AKDE(c=C,k=k).fit(X_train)
             scaler=MinMaxScaler()
             y_pred=scaler.fit_transform(model_AKDE.predict(X_train).reshape(-1,1))
@@ -99,7 +99,7 @@ def calculate_auc(X_train,y_train):
     
     # BKNN
     roc_auc=0
-    for C in [i for i in np.logspace(-2,2,10)]:
+    for C in [i for i in np.logspace(-2,2,5)]:
         model_BKNN=KNN(C=C).fit(X_train)
         scaler=MinMaxScaler()
         y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
