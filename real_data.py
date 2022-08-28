@@ -23,7 +23,8 @@ from scipy.stats import wilcoxon
 
 data_file_dir = "./dataset/density_dataset"
 #data_file_name_seq = ['ionosphere.csv','adult.csv','abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
-data_file_name_seq=["lympho.csv","cardio.csv", "thyroid.csv","vowels.csv", "glass.csv", "musk.csv","letter.csv", "pima.csv", "satellite.csv", "pendigits.csv", "yeast.csv", "heart.csv"]
+data_file_name_seq = ['abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
+#data_file_name_seq=["lympho.csv","cardio.csv", "thyroid.csv","vowels.csv", "glass.csv", "musk.csv","letter.csv", "pima.csv", "satellite.csv", "pendigits.csv", "yeast.csv", "heart.csv"]
 #data_file_name_seq=['ionosphere.csv','adult.csv', 'winequality.csv']
 
 log_file_dir = "./realdata_result/"
@@ -132,7 +133,7 @@ def calculate_score_largedata(X_train, X_test):
 
     n_train=X_train.shape[0]
 
-    time_vec=np.zeros(6)
+    time_vec=np.zeros(5)
     L2_vec=np.array([])
     ANLL_vec=np.array([])
     params_vec=[]
@@ -232,29 +233,7 @@ def calculate_score_largedata(X_train, X_test):
     params_vec.append(cv_model_KDE.best_params_["bandwidth"])
     
     
-    # AKNN
-    time_start=time.time()
-    L2_valid = []
-    k_vec=[int(i*n_train) for i in np.logspace(np.log(2/n_train)/np.log(10),np.log(2/3)/np.log(10),5)]
-    k_vec=np.repeat(k_vec,3)
-    c_vec=[ c for c in np.logspace(-2,1,3)]
-    c_vec=np.tile(c_vec,5)
-    for k,c in zip(k_vec,c_vec):
-        model=AKDE(k=k,c=c)
-        model.fit(X_train)
-        L2_valid.append(model.compute_MISE(X_train))
-    idx=np.array(L2_valid).argmin()
-    best_k=k_vec[idx]
-    best_c=c_vec[idx]
    
-    model_AKDE=AKDE(k=best_k, c=best_c)
-    model_AKDE.fit(X_train)
-    L2_vec=np.append(L2_vec, -model_AKDE.score(X_test))
-    ANLL_vec=np.append(ANLL_vec, model_AKDE.ANLL)
-    time_end=time.time()
-    time_vec[5]+=time_end-time_start
-    params_vec.append(best_k)
-    
    
     
     return L2_vec,ANLL_vec,time_vec,params_vec
@@ -295,7 +274,7 @@ for data_file_name in data_file_name_seq:
     # transformation
     scaler = MinMaxScaler()
     data = scaler.fit_transform(data)
-    dim_seq = np.array([0.1, 0.3, 0.5, 0.7]) * num_features
+    dim_seq = np.array([0.3, 0.5, 0.7]) * num_features
     dim_seq = np.array(np.round(dim_seq), dtype=np.int32)
     #
     repeat_times = 5
@@ -309,14 +288,14 @@ for data_file_name in data_file_name_seq:
             transformed_data = transformer.fit_transform(data)
             train_X, test_X = train_test_split(transformed_data, train_size=0.7, test_size=0.3)
             # estimation
-            L2,ANLL,time_cose,params= function_for_bknn(train_X, test_X)
+            L2,ANLL,time_cost,params= function_for_bknn(train_X, test_X)
             log_file_name = "realdata_BKNN.csv"
             log_file_path = os.path.join(log_file_dir, log_file_name)
             with open(log_file_path, "a") as f:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{}\n".format(data_file_name.split(".")[0],dim,
-                                              ANLL,L2,time_cose,params,i)
+                                              ANLL,L2,time_cost,params,i)
                 f.writelines(logs)
-            '''
+            
             if train_X.shape[0]<100:
                 L2_vec,ANLL_vec,time_vec,params_vec= calculate_score(train_X, test_X)
             else:
@@ -360,11 +339,6 @@ for data_file_name in data_file_name_seq:
                 f.writelines(logs)
                 
                 
-            log_file_name = "realdata_AKDE.csv"
-            log_file_path = os.path.join(log_file_dir, log_file_name)
-            with open(log_file_path, "a") as f:
-                logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{}\n".format(data_file_name.split(".")[0],dim,
-                                              ANLL_vec[5],L2_vec[5],time_vec[5],params_vec[5],i)
-                f.writelines(logs)
+         
         
-            '''
+            

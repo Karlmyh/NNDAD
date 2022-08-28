@@ -220,7 +220,7 @@ def bknn(X,tree,n,dim,vol_unitball,**kwargs):
             distance_vec=distance_vec[1:]
         k_temp=1
        
-        while distance_vec[k_temp-1]*k_temp<C2 and k_temp<kwargs["kmax"]-1:
+        while distance_vec[k_temp-1]**dim*k_temp<C2 and k_temp<kwargs["kmax"]-1:
             k_temp+=1
             
   
