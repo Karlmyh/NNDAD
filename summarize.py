@@ -57,7 +57,7 @@ summary.to_excel("./sorted_result/real_data_time.xlsx")
  
 
 
-
+'''
 # anomaly summarize
 
 log_file_dir = "./anomaly_result"
@@ -75,5 +75,5 @@ summary=summary.append({"filename":"ranksum","IF":log["rankIF"].sum(),
 
 summary.to_excel("./sorted_result/anomaly_summary.xlsx")
 
-
+'''
 
