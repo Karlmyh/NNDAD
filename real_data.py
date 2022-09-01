@@ -23,7 +23,7 @@ from scipy.stats import wilcoxon
 
 data_file_dir = "./dataset/density_dataset"
 #data_file_name_seq = ['ionosphere.csv','adult.csv','abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
-data_file_name_seq = ['abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv']
+data_file_name_seq = ['ionosphere.csv','abalone.csv', 'australian.csv', 'breast-cancer.csv', 'credit.csv', 'parkinsons.csv', 'winequality-red.csv', 'winequality-white.csv', 'winequality.csv',"lympho.csv","cardio.csv", "thyroid.csv","vowels.csv", "glass.csv", "musk.csv","letter.csv", "pima.csv", "satellite.csv", "pendigits.csv", "yeast.csv", "heart.csv"]
 #data_file_name_seq=["lympho.csv","cardio.csv", "thyroid.csv","vowels.csv", "glass.csv", "musk.csv","letter.csv", "pima.csv", "satellite.csv", "pendigits.csv", "yeast.csv", "heart.csv"]
 #data_file_name_seq=['ionosphere.csv','adult.csv', 'winequality.csv']
 
@@ -144,12 +144,12 @@ def calculate_score_largedata(X_train, X_test):
     L2_valid = []
     C_vec=[i for i in np.logspace(2,5,5)]
     for C in C_vec:
-        model=AWNN(C=C)
+        model=AWNN(C=C,cut_off=1)
         model.fit(X_train)
         L2_valid.append(model.compute_MISE(X_train))
     idx=np.array(L2_valid).argmin()
     best_C=C_vec[idx]
-    model_AWNN=AWNN(C=best_C)
+    model_AWNN=AWNN(C=best_C,cut_off=1)
     model_AWNN.fit(X_train)
     L2_vec=np.append(L2_vec, -model_AWNN.score(X_test))
     ANLL_vec=np.append(ANLL_vec, model_AWNN.ANLL)

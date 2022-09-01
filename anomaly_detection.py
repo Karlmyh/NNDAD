@@ -66,47 +66,59 @@ def calculate_auc(X_train,y_train):
     roc_auc_vec.append(roc_auc)
 
     # KNN
-    roc_auc=0
-    tree_KNN=KDTree(X_train)
-    for n_neighbors in [5*i for i in range(1,11)]:
-        distance_vec,_=tree_KNN.query(X_train,n_neighbors+1)
-        distance_vec=distance_vec[:,-1]
-        scaler=MinMaxScaler()
-        y_pred=scaler.fit_transform(-distance_vec.reshape(-1,1))
-        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-    roc_auc_vec.append(roc_auc)
+    try:
+        roc_auc=0
+        tree_KNN=KDTree(X_train)
+        for n_neighbors in [5*i for i in range(1,11)]:
+            distance_vec,_=tree_KNN.query(X_train,n_neighbors+1)
+            distance_vec=distance_vec[:,-1]
+            scaler=MinMaxScaler()
+            y_pred=scaler.fit_transform(-distance_vec.reshape(-1,1))
+            roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+        roc_auc_vec.append(roc_auc)
+    except:
+        roc_auc_vec.append(0)
 
     # AWNN
     roc_auc=0
-    for C in [i for i in np.logspace(-3,3,30)]:
-        model_AWNN=AWNN(C=C).fit(X_train,max_neighbors=X_train.shape[0]-1)
-        scaler=MinMaxScaler()
-        y_pred=scaler.fit_transform(model_AWNN.predict(X_train).reshape(-1,1))
-        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-            
-    roc_auc_vec.append(roc_auc)
+    try:
+        for C in [i for i in np.logspace(-3,3,30)]:
+            model_AWNN=AWNN(C=C).fit(X_train,max_neighbors=X_train.shape[0]-1)
+            scaler=MinMaxScaler()
+            y_pred=scaler.fit_transform(model_AWNN.predict(X_train).reshape(-1,1))
+            roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+
+        roc_auc_vec.append(roc_auc)
+    except:
+        roc_auc_vec.append(0)
     
     # AKDE
     roc_auc=0
-    for C in [0.1,1,10]:
-        for k in [1,3]:
-            model_AKDE=AKDE(c=C,k=k).fit(X_train)
-            scaler=MinMaxScaler()
-            y_pred=scaler.fit_transform(model_AKDE.predict(X_train).reshape(-1,1))
-            roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-            
-    roc_auc_vec.append(roc_auc)
+    try:
+        for C in [0.1,1,10]:
+            for k in [1,3]:
+                model_AKDE=AKDE(c=C,k=k).fit(X_train)
+                scaler=MinMaxScaler()
+                y_pred=scaler.fit_transform(model_AKDE.predict(X_train).reshape(-1,1))
+                roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+
+        roc_auc_vec.append(roc_auc)
+    except:
+        roc_auc_vec.append(0)
     
     # BKNN
     roc_auc=0
-    for C in [i for i in np.logspace(-2,2,5)]:
-        model_BKNN=KNN(C=C).fit(X_train)
-        scaler=MinMaxScaler()
-        y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
-        #y_pred[y_pred==0]=1
-        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-            
-    roc_auc_vec.append(roc_auc)
+    try:
+        for C in [i for i in np.logspace(-2,2,5)]:
+            model_BKNN=KNN(C=C).fit(X_train)
+            scaler=MinMaxScaler()
+            y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
+            #y_pred[y_pred==0]=1
+            roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+
+        roc_auc_vec.append(roc_auc)
+    except:
+        roc_auc_vec.append(0)
     
     return roc_auc_vec
 

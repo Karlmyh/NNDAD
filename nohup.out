@@ -1,0 +1,66 @@
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:47: RuntimeWarning: divide by zero encountered in true_divide
+  log_density= np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim))
+vowels.csv
+[0.7851814946619217, 0.9484839857651246, 0.9535943060498222, 0.9797010676156583, 0.9834448398576513, 0.8130960854092526, 0.9365266903914591]
+satellite.csv
+[0.7105255693112873, 0.5655267486292662, 0.6790227027645178, 0.7081552071802596, 0.774806328291749, 0.63542869995381, 0.6223991906483658]
+optdigits.csv
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 124, in <module>
+    roc_auc_vec=calculate_auc(X_train,y_train)
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 105, in calculate_auc
+    y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/base.py", line 699, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/preprocessing/_data.py", line 363, in fit
+    return self.partial_fit(X, y)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/preprocessing/_data.py", line 396, in partial_fit
+    X = self._validate_data(X, reset=first_pass,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/base.py", line 421, in _validate_data
+    X = check_array(X, **check_params)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 720, in check_array
+    _assert_all_finite(array,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 103, in _assert_all_finite
+    raise ValueError(
+ValueError: Input contains infinity or a value too large for dtype('float64').
+python: can't open file '/data/karl/AWNNDE/anomaly_detedction.py': [Errno 2] No such file or directory
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:47: RuntimeWarning: divide by zero encountered in true_divide
+  log_density= np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:47: RuntimeWarning: divide by zero encountered in true_divide
+  log_density= np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:47: RuntimeWarning: overflow encountered in true_divide
+  log_density= np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:47: RuntimeWarning: divide by zero encountered in true_divide
+  log_density= np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim))
+/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py:702: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py:702: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py:702: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
