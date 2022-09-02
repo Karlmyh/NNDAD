@@ -23,7 +23,7 @@ for method in method_seq:
     summarize_log=summarize_log.append(log)
     
     
-summary = pd.pivot_table(summarize_log, index=["dim", "method"],columns=["distribution"], values=["anll", "L2","mae", "mse", "time"], aggfunc=[np.mean, np.std, len])
+summary = pd.pivot_table(summarize_log, index=["dim", "method"],columns=["distribution"], values=[ "L2","mae"], aggfunc=[np.mean, np.std, len])
 
 summary.to_excel("./sorted_result/simulation_summary.xlsx")
 
@@ -50,6 +50,8 @@ for method in method_seq:
 summary = pd.pivot_table(summarize_log, index=["dataset", "dim"], columns=["method"],values=["L2"], aggfunc=[np.mean, np.std, len])
     
 summary.to_excel("./sorted_result/realdata_summary.xlsx")
+
+'''
  
 summary = pd.pivot_table(summarize_log, index=["dataset", "dim"], columns=["method"],values=["time"], aggfunc=[np.mean, np.std, len])
     
@@ -57,7 +59,7 @@ summary.to_excel("./sorted_result/real_data_time.xlsx")
  
 
 
-'''
+
 # anomaly summarize
 
 log_file_dir = "./anomaly_result"
