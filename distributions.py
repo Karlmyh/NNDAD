@@ -221,6 +221,7 @@ class CauchyDistribution(Distribution):
         
         sample_X=[]
         for i in range(self.dim):
+         
             sample_Xi=cauchy.rvs(loc=self.loc[i],scale=self.scale[i],size=num_samples)
             
             
