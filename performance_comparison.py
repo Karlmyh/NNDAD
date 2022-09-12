@@ -41,7 +41,7 @@ for dim_iter,dim in enumerate(dim_vec):
             
             
             
-                
+            np.random.seed(iterate)
             # generate distribution
            
             
@@ -51,10 +51,10 @@ for dim_iter,dim in enumerate(dim_vec):
             X_test, pdf_X_test = density.generate(n_test)
             
             #### score mae mse    method time C(parameter) iter ntrain ntest
-            '''
+          
             # AWNN
             time_start=time.time()
-            parameters={"C":[i for i in np.logspace(-1.5,1.5,15)]}
+            parameters={"C":[i for i in np.logspace(-3,3,15)]}
             cv_model_AWNN=GridSearchCV(estimator=AWNN(),param_grid=parameters,n_jobs=-1,cv=10)
             cv_model_AWNN.fit(X_train)
             time_end=time.time()
@@ -162,7 +162,7 @@ for dim_iter,dim in enumerate(dim_vec):
                                               mse(np.exp(model_AKDE.log_density),pdf_X_test),time_end-time_start,
                                               cv_model_AKDE.best_params_["k"],iterate,n_train,n_test)
                 f.writelines(logs)
-            '''
+          
             # BKNN
             time_start=time.time()
             parameters={"C":[0.1,0.01,1,10,100]}

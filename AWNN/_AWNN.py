@@ -164,7 +164,7 @@ class AWNN(object):
         
         if max_neighbors=="auto":
             # generally enough with 1e4
-            self.max_neighbors_=min(int(X.shape[0]**(2/3)),10000)
+            self.max_neighbors_=min(int(X.shape[0]*(2/3)),10000)
         else:
             self.max_neighbors_=max_neighbors
             
@@ -262,7 +262,7 @@ class AWNN(object):
             else:
                 distance_vec=distance_vec[:-1]
                 
-            beta=self.C*distance_vec
+            beta=self.C*distance_vec*distance_vec[2*self.cut_off-1]**self.dim_*self.n_train_
             
             
             estAlpha,alphaIndexMax=weight_selection(beta,cut_off=self.cut_off)
@@ -278,13 +278,13 @@ class AWNN(object):
                 # rule out self testing
                 if distance_vec[0]==0:
                     distance_vec=distance_vec[1:]
-                    beta=self.C*distance_vec
+                    beta=self.C*distance_vec/distance_vec[2*self.cut_off-1]**self.dim_*self.n_train_
                     estAlpha,alphaIndexMax=weight_selection(beta,cut_off=self.cut_off)
                     
                     
                 else:
                     distance_vec=distance_vec[:-1]
-                    beta=self.C*distance_vec
+                    beta=self.C*distance_vec*distance_vec[2*self.cut_off-1]**self.dim_*self.n_train_
                     estAlpha,alphaIndexMax=weight_selection(beta,cut_off=self.cut_off)
             if self.save_weights:        
                 self.alpha[i,:estAlpha.shape[0]]=estAlpha
