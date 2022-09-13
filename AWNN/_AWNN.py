@@ -262,7 +262,7 @@ class AWNN(object):
             else:
                 distance_vec=distance_vec[:-1]
                 
-            beta=self.C*distance_vec*distance_vec[2*self.cut_off-1]**self.dim_*self.n_train_
+            beta=self.C*distance_vec
             
             
             estAlpha,alphaIndexMax=weight_selection(beta,cut_off=self.cut_off)
@@ -278,13 +278,13 @@ class AWNN(object):
                 # rule out self testing
                 if distance_vec[0]==0:
                     distance_vec=distance_vec[1:]
-                    beta=self.C*distance_vec/distance_vec[2*self.cut_off-1]**self.dim_*self.n_train_
+                    beta=self.C*distance_vec
                     estAlpha,alphaIndexMax=weight_selection(beta,cut_off=self.cut_off)
                     
                     
                 else:
                     distance_vec=distance_vec[:-1]
-                    beta=self.C*distance_vec*distance_vec[2*self.cut_off-1]**self.dim_*self.n_train_
+                    beta=self.C*distance_vec
                     estAlpha,alphaIndexMax=weight_selection(beta,cut_off=self.cut_off)
             if self.save_weights:        
                 self.alpha[i,:estAlpha.shape[0]]=estAlpha

@@ -23,7 +23,7 @@ def mse(x,y):
 
 
 
-dim_vec=[2,5,8]
+dim_vec=[8]
 
 distribution_index_vec=[4,7,8,9,12,13,17]
 repeat_time=10
@@ -54,7 +54,7 @@ for dim_iter,dim in enumerate(dim_vec):
           
             # AWNN
             time_start=time.time()
-            parameters={"C":[i for i in np.logspace(-3,3,15)]}
+            parameters={"C":[i for i in np.logspace(-4.5,4.5,25)]}
             cv_model_AWNN=GridSearchCV(estimator=AWNN(),param_grid=parameters,n_jobs=-1,cv=10)
             cv_model_AWNN.fit(X_train)
             time_end=time.time()
