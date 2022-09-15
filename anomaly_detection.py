@@ -110,11 +110,26 @@ def calculate_auc(X_train,y_train):
     roc_auc=0
     try:
         for C in [i for i in np.logspace(-2,2,5)]:
-            model_BKNN=KNN(C=C).fit(X_train)
+            model_BKNN=KNN(C=C).fit(X_train,method="BKNN")
             scaler=MinMaxScaler()
             y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
             #y_pred[y_pred==0]=1
             roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+
+        roc_auc_vec.append(roc_auc)
+    except:
+        roc_auc_vec.append(0)
+        
+    # TKNN
+    roc_auc=0
+    try:
+        for threshold_num in [1,2,3]:
+            for threshold_r in [0.01,0.1,1]:
+                model_BKNN=KNN(threshold_num=threshold_num,threshold_r=threshold_r).fit(X_train,method="AKNN")
+                scaler=MinMaxScaler()
+                y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
+                #y_pred[y_pred==0]=1
+                roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
 
         roc_auc_vec.append(roc_auc)
     except:
@@ -140,12 +155,12 @@ for data_file_name in data_file_name_seq:
     with open(log_file_path, "a") as f:
         logs= "{},{},{},{},{},{},{},{},".format(data_file_name.split(".")[0],
                                         roc_auc_vec[0],roc_auc_vec[1], roc_auc_vec[2],roc_auc_vec[3],
-                                        roc_auc_vec[4],roc_auc_vec[5],roc_auc_vec[6])
+                                        roc_auc_vec[4],roc_auc_vec[5],roc_auc_vec[6],roc_auc_vec[7])
         f.writelines(logs)
-        logs= "{},{},{},{},{},{},{}\n".format(8-rankdata(roc_auc_vec)[0],
-        8-rankdata(roc_auc_vec)[1],8-rankdata(roc_auc_vec)[2],
-        8-rankdata(roc_auc_vec)[3],8-rankdata(roc_auc_vec)[4],
-        8-rankdata(roc_auc_vec)[5],8-rankdata(roc_auc_vec)[6])
+        logs= "{},{},{},{},{},{},{}\n".format(9-rankdata(roc_auc_vec)[0],
+        9-rankdata(roc_auc_vec)[1],9-rankdata(roc_auc_vec)[2],
+        9-rankdata(roc_auc_vec)[3],9-rankdata(roc_auc_vec)[4],
+        9-rankdata(roc_auc_vec)[5],9-rankdata(roc_auc_vec)[6],9-rankdata(roc_auc_vec)[7])
         f.writelines(logs)
         
 
