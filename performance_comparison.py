@@ -54,7 +54,7 @@ for dim_iter,dim in enumerate(dim_vec):
           
             # AWNN
             time_start=time.time()
-            parameters={"C":[i for i in np.logspace(-4.5,4.5,25)]}
+            parameters={"C":[i for i in np.logspace(-1.5,1.5,15)]}
             cv_model_AWNN=GridSearchCV(estimator=AWNN(),param_grid=parameters,n_jobs=-1,cv=10)
             cv_model_AWNN.fit(X_train)
             time_end=time.time()

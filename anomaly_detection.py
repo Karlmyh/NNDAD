@@ -38,6 +38,19 @@ def calculate_auc(X_train,y_train):
     
     roc_auc_vec=[]
     
+    # AWNN
+    roc_auc=0
+    try:
+        for C in [i for i in np.logspace(-3,3,30)]:
+            model_AWNN=AWNN(C=C).fit(X_train,max_neighbors=X_train.shape[0]-1)
+            scaler=MinMaxScaler()
+            y_pred=scaler.fit_transform(model_AWNN.predict(X_train).reshape(-1,1))
+            roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+
+        roc_auc_vec.append(roc_auc)
+    except:
+        roc_auc_vec.append(0)
+        
     # IForest
     roc_auc=0
     for n_estimators in [100,300,500]:
@@ -79,18 +92,7 @@ def calculate_auc(X_train,y_train):
     except:
         roc_auc_vec.append(0)
 
-    # AWNN
-    roc_auc=0
-    try:
-        for C in [i for i in np.logspace(-3,3,30)]:
-            model_AWNN=AWNN(C=C).fit(X_train,max_neighbors=X_train.shape[0]-1)
-            scaler=MinMaxScaler()
-            y_pred=scaler.fit_transform(model_AWNN.predict(X_train).reshape(-1,1))
-            roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-
-        roc_auc_vec.append(roc_auc)
-    except:
-        roc_auc_vec.append(0)
+    
     
     # AKDE
     roc_auc=0
@@ -125,9 +127,9 @@ def calculate_auc(X_train,y_train):
     try:
         for threshold_num in [1,2,3]:
             for threshold_r in [0.01,0.1,1]:
-                model_BKNN=KNN(threshold_num=threshold_num,threshold_r=threshold_r).fit(X_train,method="AKNN")
+                model_TKNN=KNN(threshold_num=threshold_num,threshold_r=threshold_r).fit(X_train,method="AKNN")
                 scaler=MinMaxScaler()
-                y_pred=scaler.fit_transform(model_BKNN.predict(X_train).reshape(-1,1))
+                y_pred=scaler.fit_transform(model_TKNN.predict(X_train).reshape(-1,1))
                 #y_pred[y_pred==0]=1
                 roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
 
@@ -153,15 +155,10 @@ for data_file_name in data_file_name_seq:
     log_file_name = "anomaly.csv"
     log_file_path = os.path.join(log_file_dir, log_file_name)
     with open(log_file_path, "a") as f:
-        logs= "{},{},{},{},{},{},{},{},".format(data_file_name.split(".")[0],
+        logs= "{},{},{},{},{},{},{},{},{}\n".format(data_file_name.split(".")[0],
                                         roc_auc_vec[0],roc_auc_vec[1], roc_auc_vec[2],roc_auc_vec[3],
                                         roc_auc_vec[4],roc_auc_vec[5],roc_auc_vec[6],roc_auc_vec[7])
         f.writelines(logs)
-        logs= "{},{},{},{},{},{},{}\n".format(9-rankdata(roc_auc_vec)[0],
-        9-rankdata(roc_auc_vec)[1],9-rankdata(roc_auc_vec)[2],
-        9-rankdata(roc_auc_vec)[3],9-rankdata(roc_auc_vec)[4],
-        9-rankdata(roc_auc_vec)[5],9-rankdata(roc_auc_vec)[6],9-rankdata(roc_auc_vec)[7])
-        f.writelines(logs)
-        
+  
 
 

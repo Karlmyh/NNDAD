@@ -174,3 +174,606 @@ pendigits.csv
 [0.9582020343229938, 0.5437001302486182, 0.9606847792457802, 0.8605556765097953, 0.9653380161722185, 0.8797262869212817, 0.6865964240833896]
 annthyroid.csv
 [0.8232237834739584, 0.7180177066738594, 0.6342422684322766, 0.7342782324794682, 0.7405014174892037, 0.7892981672384388, 0]
+vowels.csv
+[0.7851814946619217, 0.9484839857651246, 0.9535943060498222, 0.9797010676156583, 0.9834448398576513, 0.8130960854092526, 0.9313309608540925, 0.9661637010676157]
+satellite.csv
+[0.7105255693112873, 0.5655267486292662, 0.6790227027645178, 0.7081552071802596, 0, 0, 0.6039664841404068, 0.6223991906483658]
+optdigits.csv
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 151, in <module>
+    roc_auc_vec=calculate_auc(X_train,y_train)
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 53, in calculate_auc
+    model_LOF=LocalOutlierFactor(n_neighbors=n_neighbors).fit(X_train,y_train)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_lof.py", line 280, in fit
+    self._distances_fit_X_, _neighbors_indices_fit_X_ = self.kneighbors(
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_base.py", line 705, in kneighbors
+    chunked_results = list(pairwise_distances_chunked(
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/pairwise.py", line 1633, in pairwise_distances_chunked
+    D_chunk = reduce_func(D_chunk, sl.start)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_base.py", line 582, in _kneighbors_reduce_func
+    neigh_ind = np.argpartition(dist, n_neighbors - 1, axis=1)
+  File "<__array_function__ internals>", line 5, in argpartition
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py", line 839, in argpartition
+    return _wrapfunc(a, 'argpartition', kth, axis=axis, kind=kind, order=order)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py", line 57, in _wrapfunc
+    return bound(*args, **kwds)
+KeyboardInterrupt
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: divide by zero encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: invalid value encountered in multiply
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: divide by zero encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: overflow encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: invalid value encountered in multiply
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: divide by zero encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: invalid value encountered in multiply
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+vowels.csv
+[0.7851814946619217, 0.9484839857651246, 0.9535943060498222, 0.9797010676156583, 0.9834448398576513, 0.8130960854092526, 0.9313309608540925, 0.9661637010676157]
+satellite.csv
+[0.7105255693112873, 0.5655267486292662, 0.6790227027645178, 0.7081552071802596, 0, 0, 0.6039664841404068, 0.6223991906483658]
+optdigits.csv
+[0.7410095426127016, 0.6658111220796314, 0.5673919052319842, 0, 0, 0, 0, 0]
+letter.csv
+[0.6388325550366911, 0.9036557705136757, 0.5953702468312208, 0.8949566377585056, 0.9040226817878585, 0.5294196130753837, 0.9200200133422283, 0.9188425617078053]
+pima.csv
+[0.672689138576779, 0.6472509363295881, 0.6479625468164794, 0.7292359550561798, 0.7309662921348314, 0.6894681647940075, 0.708689138576779, 0.7061535580524344]
+musk.csv
+[1.0, 0.5279019111860596, 1.0, 0.9970840359752671, 0, 0, 0, 0]
+ionosphere.csv
+[0.8623511904761905, 0.9015731292517007, 0.9064980158730158, 0.9314236111111112, 0.9371456916099773, 0.7513463718820862, 0.9360119047619048, 0.931547619047619]
+mnist.csv
+[0.8111652937036884, 0.7420271556898621, 0.8226503704930248, 0.8597617667756758, 0, 0, 0, 0.7630611210001242]
+wbc.csv
+[0.9372659176029962, 0.9491706795077581, 0.946629213483146, 0.9490369181380417, 0.9497057249866238, 0.29761904761904767, 0.9225521669341894, 0.9559925093632958]
+thyroid.csv
+[0.98115794582142, 0.9463710408298105, 0.9275348336812317, 0.9509770387131856, 0.9503850269255731, 0.9301133739117216, 0.9415296999888907, 0]
+shuttle.csv
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 151, in <module>
+    y_train=data[:,-1]
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 62, in calculate_auc
+    
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/svm/_classes.py", line 1376, in fit
+    super().fit(X, np.ones(_num_samples(X)),
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/svm/_base.py", line 226, in fit
+    fit(X, y, sample_weight, solver_type, kernel, random_seed=seed)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/svm/_base.py", line 277, in _dense_fit
+    self._probB, self.fit_status_ = libsvm.fit(
+  File "sklearn/svm/_libsvm.pyx", line 233, in sklearn.svm._libsvm.fit
+KeyboardInterrupt
+vowels.csv
+[0.9834448398576513, 0.7851814946619217, 0.9484839857651246, 0.9535943060498222, 0.9797010676156583, 0.8130960854092526, 0.9313309608540925, 0.9661637010676157]
+satellite.csv
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 153, in <module>
+    roc_auc_vec=calculate_auc(X_train,y_train)
+  File "/data/karl/AWNNDE/anomaly_detection.py", line 57, in calculate_auc
+    model_IF=IsolationForest(random_state=1,n_estimators=n_estimators).fit(X_train,y_train)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/ensemble/_iforest.py", line 278, in fit
+    super()._fit(X, y, max_samples,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/ensemble/_bagging.py", line 370, in _fit
+    all_results = Parallel(n_jobs=n_jobs, verbose=self.verbose,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 1043, in __call__
+    if self.dispatch_one_batch(iterator):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 861, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 779, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 208, in apply_async
+    result = ImmediateResult(func)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 572, in __init__
+    self.results = batch()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/ensemble/_bagging.py", line 91, in _parallel_build_estimators
+    features, indices = _generate_bagging_indices(random_state,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/ensemble/_bagging.py", line 52, in _generate_bagging_indices
+    random_state = check_random_state(random_state)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 940, in check_random_state
+    return np.random.RandomState(seed)
+  File "mtrand.pyx", line 184, in numpy.random.mtrand.RandomState.__init__
+  File "_mt19937.pyx", line 130, in numpy.random._mt19937.MT19937.__init__
+  File "/usr/local/anaconda3/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/_ufunc_config.py", line 435, in __exit__
+    seterr(**self.oldstate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/_ufunc_config.py", line 110, in seterr
+    old = geterr()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/_ufunc_config.py", line 170, in geterr
+    val = (maskvalue >> SHIFT_DIVIDEBYZERO) & mask
+KeyboardInterrupt
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: divide by zero encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: invalid value encountered in multiply
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: overflow encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:228: RuntimeWarning: divide by zero encountered in double_scalars
+  log_density.append(np.log(k_temp*kwargs["C"]/n/vol_unitball/(distance_vec[k_temp-1]**dim)+1e-30))
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: divide by zero encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: overflow encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: invalid value encountered in multiply
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: divide by zero encountered in true_divide
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
+/data/karl/AWNNDE/KNN/_NNAlgorithms.py:156: RuntimeWarning: invalid value encountered in multiply
+  log_density=np.log(k/n/vol_unitball/(distance_matrix[:,k]**dim)*mask+1e-30)
