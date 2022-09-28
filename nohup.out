@@ -881,3 +881,65 @@ pendigits.csv
 [0.9653380161722185, 0.9582020343229938, 0.5437001302486182, 0.9606847792457802, 0.8605556765097953, 0.8797262869212817, 0.674642007280172, 0.6865964240833896]
 annthyroid.csv
 [0.7405014174892037, 0.8232237834739584, 0.7180177066738594, 0.6342422684322766, 0.7342782324794682, 0.7892981672384388, 0.7160930682108729, 0]
+python: can't open file '/data/karl/AWNNDE/performance_comparsion.py': [Errno 2] No such file or directory
+python: can't open file '/data/karl/AWNNDE/performance_comparision.py': [Errno 2] No such file or directory
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+/data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
+  return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()

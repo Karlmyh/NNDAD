@@ -156,7 +156,7 @@ def calculate_score_largedata(X_train, X_test):
     time_end=time.time()
     time_vec[0]+=time_end-time_start
     params_vec.append(best_C)
-    
+    '''
     # KNN
     time_start=time.time()
     L2_valid = []
@@ -234,7 +234,7 @@ def calculate_score_largedata(X_train, X_test):
     
     
    
-   
+   '''
     
     return L2_vec,ANLL_vec,time_vec,params_vec
 
@@ -288,6 +288,7 @@ for data_file_name in data_file_name_seq:
             transformed_data = transformer.fit_transform(data)
             train_X, test_X = train_test_split(transformed_data, train_size=0.7, test_size=0.3)
             # estimation
+            '''
             L2,ANLL,time_cost,params= function_for_bknn(train_X, test_X)
             log_file_name = "realdata_BKNN.csv"
             log_file_path = os.path.join(log_file_dir, log_file_name)
@@ -295,6 +296,7 @@ for data_file_name in data_file_name_seq:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{}\n".format(data_file_name.split(".")[0],dim,
                                               ANLL,L2,time_cost,params,i)
                 f.writelines(logs)
+            '''
             
             if train_X.shape[0]<100:
                 L2_vec,ANLL_vec,time_vec,params_vec= calculate_score(train_X, test_X)
@@ -307,7 +309,7 @@ for data_file_name in data_file_name_seq:
                 logs= "{},{},{:.2e},{:.2e},{:.2e},{:.2e},{}\n".format(data_file_name.split(".")[0],dim,
                                               ANLL_vec[0],L2_vec[0],time_vec[0],params_vec[0],i)
                 f.writelines(logs)
-                
+                '''
             log_file_name = "realdata_KNN.csv"
             log_file_path = os.path.join(log_file_dir, log_file_name)
             with open(log_file_path, "a") as f:
@@ -339,6 +341,6 @@ for data_file_name in data_file_name_seq:
                 f.writelines(logs)
                 
                 
-         
+         '''
         
             

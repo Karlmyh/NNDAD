@@ -23,7 +23,7 @@ def mse(x,y):
 
 
 
-dim_vec=[8]
+dim_vec=[2,5,8]
 
 distribution_index_vec=[4,7,8,9,12,13,17]
 repeat_time=10

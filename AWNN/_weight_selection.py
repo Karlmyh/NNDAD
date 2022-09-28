@@ -58,6 +58,9 @@ def weight_selection(beta,cut_off):
         else:
             alphaIndexMax-=1
             break
+            
+    if lamda>100000000:
+        return np.zeros(potentialNeighbors),0
     
     # estimation
     estAlpha=np.zeros(potentialNeighbors)
