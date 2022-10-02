@@ -943,3 +943,27 @@ python: can't open file '/data/karl/AWNNDE/performance_comparision.py': [Errno 2
   return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
 /data/karl/AWNNDE/AWNN/_AWNN.py:392: RuntimeWarning: overflow encountered in exp
   return 2*np.exp(self.log_density).mean()-(np.exp(2*validate_log_density)/pdf_X_validate).mean()
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/performance_comparison-l1.py", line 130, in <module>
+    cv_model_AKNN.fit(X_train,method="AKNN")
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 841, in fit
+    self._run_search(evaluate_candidates)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 1296, in _run_search
+    evaluate_candidates(ParameterGrid(self.param_grid))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 795, in evaluate_candidates
+    out = parallel(delayed(_fit_and_score)(clone(base_estimator),
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 1056, in __call__
+    self.retrieve()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 935, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 542, in wrap_future_result
+    return future.result(timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/concurrent/futures/_base.py", line 445, in result
+    return self.__get_result()
+  File "/usr/local/anaconda3/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGKILL(-9)}
