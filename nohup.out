@@ -967,3 +967,2779 @@ Traceback (most recent call last):
 joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
 
 The exit codes of the workers are {SIGKILL(-9)}
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/performance_comparison-l1.py", line 167, in <module>
+    cv_model_AKDE.fit(X_train)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 841, in fit
+    self._run_search(evaluate_candidates)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 1296, in _run_search
+    evaluate_candidates(ParameterGrid(self.param_grid))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 795, in evaluate_candidates
+    out = parallel(delayed(_fit_and_score)(clone(base_estimator),
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 1056, in __call__
+    self.retrieve()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 935, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 542, in wrap_future_result
+    return future.result(timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/concurrent/futures/_base.py", line 440, in result
+    self._condition.wait(timeout)
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 312, in wait
+    waiter.acquire()
+KeyboardInterrupt
+Process LokyProcess-36:
+Process LokyProcess-13:
+Process LokyProcess-27:
+Process LokyProcess-26:
+Process LokyProcess-10:
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 407, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/queues.py", line 108, in get
+    if not self._rlock.acquire(block, timeout):
+KeyboardInterrupt
+
+Process LokyProcess-19:
+Process LokyProcess-18:
+Process LokyProcess-15:
+Process LokyProcess-4:
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 407, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/queues.py", line 108, in get
+    if not self._rlock.acquire(block, timeout):
+KeyboardInterrupt
+
+Process LokyProcess-32:
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 407, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/queues.py", line 108, in get
+    if not self._rlock.acquire(block, timeout):
+KeyboardInterrupt
+
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+joblib.my_exceptions.WorkerInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 207, in score_samples
+    log_density = self.tree_.kernel_density(
+Traceback (most recent call last):
+  File "sklearn/neighbors/_binary_tree.pxi", line 1693, in sklearn.neighbors._kd_tree.BinaryTree.kernel_density
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/numeric.py", line 341, in full
+    fill_value = asarray(fill_value)
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+joblib.my_exceptions.WorkerInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 407, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/queues.py", line 108, in get
+    if not self._rlock.acquire(block, timeout):
+KeyboardInterrupt
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 407, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/queues.py", line 108, in get
+    if not self._rlock.acquire(block, timeout):
+KeyboardInterrupt
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+KeyboardInterrupt
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+joblib.my_exceptions.WorkerInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "sklearn/neighbors/_binary_tree.pxi", line 1052, in sklearn.neighbors._kd_tree.BinaryTree.__init__
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 720, in check_array
+    _assert_all_finite(array,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 96, in _assert_all_finite
+    if is_float and (np.isfinite(_safe_accumulator_op(np.sum, X))):
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 201, in score_samples
+    X = check_array(X, order='C', dtype=DTYPE)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 720, in check_array
+    _assert_all_finite(array,
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 96, in _assert_all_finite
+    if is_float and (np.isfinite(_safe_accumulator_op(np.sum, X))):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/extmath.py", line 686, in _safe_accumulator_op
+    if np.issubdtype(x.dtype, np.floating) and x.dtype.itemsize < 8:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/numerictypes.py", line 418, in issubdtype
+    arg1 = dtype(arg1).type
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+joblib.my_exceptions.WorkerInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+
+During handling of the above exception, another exception occurred:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 207, in score_samples
+    log_density = self.tree_.kernel_density(
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+KeyboardInterrupt
+joblib.my_exceptions.WorkerInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 935, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 542, in wrap_future_result
+    return future.result(timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/concurrent/futures/_base.py", line 440, in result
+    self._condition.wait(timeout)
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 312, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/performance_comparison-l1.py", line 167, in <module>
+    cv_model_AKDE.fit(X_train)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 841, in fit
+    self._run_search(evaluate_candidates)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 1296, in _run_search
+    evaluate_candidates(ParameterGrid(self.param_grid))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 795, in evaluate_candidates
+    out = parallel(delayed(_fit_and_score)(clone(base_estimator),
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 1056, in __call__
+    self.retrieve()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 957, in retrieve
+    backend.abort_everything(ensure_ready=ensure_ready)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 561, in abort_everything
+    self._workers.terminate(kill_workers=True)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/executor.py", line 74, in terminate
+    self.shutdown(kill_workers=kill_workers)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 1185, in shutdown
+    executor_manager_thread.join()
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 1053, in join
+    self._wait_for_tstate_lock()
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 1069, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt
+Process LokyProcess-48:
+Process LokyProcess-47:
+Process LokyProcess-52:
+Process LokyProcess-49:
+Process LokyProcess-40:
+Process LokyProcess-34:
+Process LokyProcess-46:
+Process LokyProcess-45:
+Process LokyProcess-35:
+Process LokyProcess-11:
+Process LokyProcess-19:
+Process LokyProcess-16:
+Process LokyProcess-20:
+Process LokyProcess-23:
+Process LokyProcess-4:
+Process LokyProcess-29:
+Process LokyProcess-14:
+Process LokyProcess-9:
+Process LokyProcess-36:
+Process LokyProcess-51:
+Process LokyProcess-31:
+Process LokyProcess-43:
+Process LokyProcess-53:
+Process LokyProcess-42:
+Process LokyProcess-22:
+Process LokyProcess-41:
+Process LokyProcess-30:
+Process LokyProcess-32:
+Process LokyProcess-21:
+Process LokyProcess-44:
+Process LokyProcess-33:
+Process LokyProcess-15:
+Process LokyProcess-39:
+Process LokyProcess-6:
+Process LokyProcess-25:
+Process LokyProcess-10:
+Process LokyProcess-24:
+Process LokyProcess-26:
+Process LokyProcess-13:
+Process LokyProcess-18:
+Process LokyProcess-12:
+Process LokyProcess-3:
+Traceback (most recent call last):
+Process LokyProcess-50:
+Process LokyProcess-38:
+Process LokyProcess-37:
+Traceback (most recent call last):
+Process LokyProcess-28:
+Process LokyProcess-1:
+Process LokyProcess-17:
+Process LokyProcess-8:
+Process LokyProcess-27:
+Process LokyProcess-5:
+Process LokyProcess-2:
+Process LokyProcess-7:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+
+The above exception was the direct cause of the following exception:
+
+KeyboardInterrupt
+Traceback (most recent call last):
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+joblib.my_exceptions.WorkerInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 473, in _process_worker
+    result_queue.put(pid)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+KeyboardInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 935, in retrieve
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 207, in score_samples
+    log_density = self.tree_.kernel_density(
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 207, in score_samples
+    log_density = self.tree_.kernel_density(
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "sklearn/neighbors/_binary_tree.pxi", line 1693, in sklearn.neighbors._kd_tree.BinaryTree.kernel_density
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "sklearn/neighbors/_binary_tree.pxi", line 1671, in sklearn.neighbors._kd_tree.BinaryTree.kernel_density
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+
+The above exception was the direct cause of the following exception:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/numeric.py", line 289, in full
+    @set_array_function_like_doc
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+KeyboardInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 59, in inner_f
+    @wraps(f)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 595, in __call__
+    return self.func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+    self._output.extend(job.get(timeout=self.timeout))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 542, in wrap_future_result
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 207, in score_samples
+    log_density = self.tree_.kernel_density(
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+
+During handling of the above exception, another exception occurred:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+    return future.result(timeout=timeout)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+Traceback (most recent call last):
+  File "sklearn/neighbors/_binary_tree.pxi", line 1693, in sklearn.neighbors._kd_tree.BinaryTree.kernel_density
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/numpy/core/numeric.py", line 289, in full
+    @set_array_function_like_doc
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/fixes.py", line 222, in __call__
+    return self.function(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+The above exception was the direct cause of the following exception:
+
+KeyboardInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+
+The above exception was the direct cause of the following exception:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/concurrent/futures/_base.py", line 440, in result
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 207, in score_samples
+    log_density = self.tree_.kernel_density(
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 625, in _fit_and_score
+    test_scores = _score(estimator, X_test, y_test, scorer, error_score)
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 165, in fit
+    X = self._validate_data(X, order='C', dtype=DTYPE)
+    self._condition.wait(timeout)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+The above exception was the direct cause of the following exception:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py", line 685, in _score
+    scores = scorer(estimator, X_test)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+KeyboardInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 165, in fit
+    X = self._validate_data(X, order='C', dtype=DTYPE)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 207, in score_samples
+    log_density = self.tree_.kernel_density(
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/base.py", line 421, in _validate_data
+    X = check_array(X, **check_params)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 312, in wait
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 165, in fit
+    X = self._validate_data(X, order='C', dtype=DTYPE)
+
+The above exception was the direct cause of the following exception:
+
+KeyboardInterrupt
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+The above exception was the direct cause of the following exception:
+
+KeyboardInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_scorer.py", line 397, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+
+The above exception was the direct cause of the following exception:
+
+joblib.my_exceptions.WorkerInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/base.py", line 421, in _validate_data
+    X = check_array(X, **check_params)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+KeyboardInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+
+The above exception was the direct cause of the following exception:
+
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/base.py", line 421, in _validate_data
+    X = check_array(X, **check_params)
+KeyboardInterrupt
+Traceback (most recent call last):
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 389, in score
+    self.MISE=self.compute_MISE(X)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+
+The above exception was the direct cause of the following exception:
+
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+
+The above exception was the direct cause of the following exception:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 682, in check_array
+    _ensure_no_complex_data(array)
+
+The above exception was the direct cause of the following exception:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+joblib.my_exceptions.WorkerInterrupt
+
+The above exception was the direct cause of the following exception:
+
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+
+The above exception was the direct cause of the following exception:
+
+    waiter.acquire()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 720, in check_array
+    _assert_all_finite(array,
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+Traceback (most recent call last):
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 252, in score_samples
+    log_density[i]=kde.score_samples(X[i].reshape(1,-1))[0]
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 332, in compute_MISE
+    validate_log_density=self.score_samples(X_validate)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 455, in _ensure_no_complex_data
+    if hasattr(array, 'dtype') and array.dtype is not None \
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 95, in _assert_all_finite
+    is_float = X.dtype.kind in 'fc'
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 660, in check_array
+    with warnings.catch_warnings():
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 201, in score_samples
+    X = check_array(X, order='C', dtype=DTYPE)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+joblib.my_exceptions.WorkerInterrupt
+  File "/data/karl/AWNNDE/AKDE/_AKDE.py", line 251, in score_samples
+    kde=KernelDensity(bandwidth=adaptive_bandwidth[i]).fit(self.X_train_)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+joblib.my_exceptions.WorkerInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/warnings.py", line 462, in __enter__
+    self._filters = self._module.filters
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/neighbors/_kde.py", line 175, in fit
+    self.tree_ = TREE_DICT[algorithm](X, metric=self.metric,
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+
+The above exception was the direct cause of the following exception:
+
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+joblib.my_exceptions.WorkerInterrupt
+
+The above exception was the direct cause of the following exception:
+
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+joblib.my_exceptions.WorkerInterrupt
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+joblib.my_exceptions.WorkerInterrupt
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 732, in check_array
+    n_features = array.shape[1]
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+joblib.my_exceptions.WorkerInterrupt
+  File "/data/karl/AWNNDE/performance_comparison-l1.py", line 167, in <module>
+
+During handling of the above exception, another exception occurred:
+
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+joblib.my_exceptions.WorkerInterrupt
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+KeyboardInterrupt
+joblib.my_exceptions.WorkerInterrupt
+KeyboardInterrupt
+    cv_model_AKDE.fit(X_train)
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+
+The above exception was the direct cause of the following exception:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+Traceback (most recent call last):
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+joblib.my_exceptions.WorkerInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+KeyboardInterrupt
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+
+The above exception was the direct cause of the following exception:
+
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+
+During handling of the above exception, another exception occurred:
+
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
+    r = call_item()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 841, in fit
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+joblib.my_exceptions.WorkerInterrupt
+joblib.my_exceptions.WorkerInterrupt
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+joblib.my_exceptions.WorkerInterrupt
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
+    return self.fn(*self.args, **self.kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+Traceback (most recent call last):
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 600, in __call__
+    raise WorkerInterrupt() from e
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+joblib.my_exceptions.WorkerInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+joblib.my_exceptions.WorkerInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+
+During handling of the above exception, another exception occurred:
+
+    self._run_search(evaluate_candidates)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+
+During handling of the above exception, another exception occurred:
+
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 1296, in _run_search
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 247, in put
+    self._writer.send_bytes(obj)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 439, in _process_worker
+    result_queue.put(_ResultItem(call_item.work_id, exception=exc))
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/connection.py", line 416, in _send_bytes
+    self._send(header + buf)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/queues.py", line 246, in put
+    with self._wlock:
+  File "/usr/local/anaconda3/lib/python3.9/multiprocessing/connection.py", line 373, in _send
+    n = write(self._handle, buf)
+KeyboardInterrupt
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/backend/synchronize.py", line 110, in __enter__
+    return self._semlock.acquire()
+KeyboardInterrupt
+KeyboardInterrupt
+    evaluate_candidates(ParameterGrid(self.param_grid))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 795, in evaluate_candidates
+    out = parallel(delayed(_fit_and_score)(clone(base_estimator),
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 1056, in __call__
+    self.retrieve()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 957, in retrieve
+    backend.abort_everything(ensure_ready=ensure_ready)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 561, in abort_everything
+    self._workers.terminate(kill_workers=True)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/executor.py", line 74, in terminate
+    self.shutdown(kill_workers=kill_workers)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 1185, in shutdown
+    executor_manager_thread.join()
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 1053, in join
+    self._wait_for_tstate_lock()
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 1069, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt
+Exception ignored in: <module 'threading' from '/usr/local/anaconda3/lib/python3.9/threading.py'>
+Traceback (most recent call last):
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 1435, in _shutdown
+    atexit_call()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/externals/loky/process_executor.py", line 207, in _python_exit
+    thread.join()
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 1053, in join
+    self._wait_for_tstate_lock()
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 1069, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt: 
+Traceback (most recent call last):
+  File "/data/karl/AWNNDE/performance_comparison-l1.py", line 167, in <module>
+    cv_model_AKDE.fit(X_train)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/utils/validation.py", line 63, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 841, in fit
+    self._run_search(evaluate_candidates)
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 1296, in _run_search
+    evaluate_candidates(ParameterGrid(self.param_grid))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/sklearn/model_selection/_search.py", line 795, in evaluate_candidates
+    out = parallel(delayed(_fit_and_score)(clone(base_estimator),
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 1056, in __call__
+    self.retrieve()
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/parallel.py", line 935, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+  File "/usr/local/anaconda3/lib/python3.9/site-packages/joblib/_parallel_backends.py", line 542, in wrap_future_result
+    return future.result(timeout=timeout)
+  File "/usr/local/anaconda3/lib/python3.9/concurrent/futures/_base.py", line 440, in result
+    self._condition.wait(timeout)
+  File "/usr/local/anaconda3/lib/python3.9/threading.py", line 312, in wait
+    waiter.acquire()
+KeyboardInterrupt

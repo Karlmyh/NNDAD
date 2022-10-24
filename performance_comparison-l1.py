@@ -35,9 +35,9 @@ def grid_sampling(X,nsample=0,seed=1):
     return np.random.rand(int(nsample),dim)*(upper-lower)+lower,np.prod(upper-lower)
 
 
-dim_vec=[2,5,8]
+dim_vec=[8]
 
-distribution_index_vec=[4,8,9,12,13]
+distribution_index_vec=[12,13]
 repeat_time=10
 cv_criterion="MISE"
 
