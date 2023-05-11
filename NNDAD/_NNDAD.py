@@ -113,9 +113,10 @@ class NNDAD(object):
             weights =  self.compute_weights( self.mean_k_distance_train / lamda )
             score = (weights * self.mean_k_distance_train).sum() + np.sqrt(np.log(self.n_train_)) * np.linalg.norm(weights)
             if score < min_score:
-                self.score = score
+                self.best_score = score
                 self.lamda = lamda
                 self.weights = weights
+                min_score = score 
             self.score_vec.append(score)
         
         
@@ -184,7 +185,7 @@ class NNDAD(object):
         sum_beta = 0
         sum_beta_square = 0
 
-        while ( multiplier > beta[current_index] ) and ( current_index < potential_neighbors ):
+        while ( current_index < potential_neighbors - 1 ) and ( multiplier > beta[current_index] ):
             current_index +=1
             
             sum_beta += beta[current_index - 1]
@@ -228,6 +229,13 @@ class NNDAD(object):
         weighted_distance = (self.tree_.query(X, self.n_train_)[0] @ self.weights).ravel()
         return weighted_distance
     
+    
+    def density(self,X, y = None):
+        
+        vol_ball = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
+        numerator = np.sum(np.array([ ((i + 1)/ self.n_train_ )**self.dim_ for i in range(self.n_train_)]) * self.weights )**self.dim_
+        return numerator / vol_ball / (self.tree_.query(X, self.n_train_)[0] @ self.weights).ravel()
+    
    
     def score(self, X, y=None):
         """Compute the ERUBM
@@ -248,7 +256,16 @@ class NNDAD(object):
             
         """
         
-        return self.score
+        return self.best_score
+    
+    def ERUB(self, X):
+        '''
+        return the erub of X
+        '''
+        
+        return self.predict(X) + np.linalg.norm(self.weights) * np.sqrt(np.log(self.weights.shape[0]))
+        
+        
         
                 
                 

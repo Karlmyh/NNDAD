@@ -1,6 +1,9 @@
-
-
-
+import numpy as np
+import os
+import glob
+from time import time
+import math
+import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import roc_auc_score
 from sklearn.ensemble import IsolationForest
@@ -30,7 +33,7 @@ for data_file_name in data_file_name_seq:
     log_file_name = "realdata.csv"
     log_file_path = os.path.join(log_file_dir, log_file_name)
     
-
+    # nearest neighbor distance self-tuning
     model_NNDAD = NNDAD( lamda_list = [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10]).fit(X_train)
     scaler = MinMaxScaler()
     y_pred = scaler.fit_transform( - model_NNDAD.predict(X_train).reshape(-1,1))
@@ -40,6 +43,18 @@ for data_file_name in data_file_name_seq:
         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"NNDAD", roc_auc)
         f.writelines(logs)
        
+    
+    
+    # weighted nearest neighbor distance
+    roc_auc = 0
+    for lamda in [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10]:
+        model_WNN = NNDAD( lamda_list = [lamda]).fit(X_train)
+        scaler = MinMaxScaler()
+        y_pred = scaler.fit_transform( - model_WNN.predict(X_train).reshape(-1,1))
+        roc_auc = max(roc_auc, roc_auc_score(y_train,y_pred))
+    with open(log_file_path, "a") as f:
+        logs= "{},{},{}\n".format(data_file_name.split(".")[0],"WNN", roc_auc)
+        f.writelines(logs)
 
     # IForest
     roc_auc=0
