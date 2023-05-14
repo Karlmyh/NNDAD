@@ -6,8 +6,39 @@ Nearest Neighbor Distance Anomaly Detection
 import numpy as np
 import math
 from sklearn.neighbors import KDTree
+from time import time
+from numba import njit
+
+@njit
+def compute_weights(beta):
+    potential_neighbors = len(beta)
+    current_index = 0
+    multiplier = beta[0]+1 
+    sum_beta = 0
+    sum_beta_square = 0
+
+    while ( current_index < potential_neighbors - 1 ) and ( multiplier > beta[current_index] ):
+        current_index +=1
+
+        sum_beta += beta[current_index - 1]
+        sum_beta_square +=  beta[current_index - 1]**2
+
+        if  current_index  + (sum_beta**2 - current_index * sum_beta_square) >= 0:
+            multiplier =  ( sum_beta + math.sqrt( current_index  + (sum_beta**2 - current_index * sum_beta_square) ) ) 
+            multiplier /= current_index
+        else:
+            current_index -= 1
+            break
+
+    estimated_weights = np.zeros(potential_neighbors)
+
+    for j in range(current_index):
+        estimated_weights[j] = multiplier - beta[j]
 
 
+    estimated_weights = estimated_weights / np.linalg.norm(estimated_weights, ord = 1)
+    
+    return estimated_weights
 
 
 class NNDAD(object):
@@ -94,11 +125,16 @@ class NNDAD(object):
             Returns the instance itself.
         """
 
+        time_s = time()
         self.tree_ = KDTree(
             X,
             metric = self.metric,
             leaf_size = self.leaf_size,
         )
+        
+        time_e = time()
+        print("kd-tree time {}s".format(time_e - time_s))
+        time_s = time()
         
         self.dim_ = X.shape[1]
         self.n_train_ = X.shape[0]
@@ -106,6 +142,12 @@ class NNDAD(object):
 
         
         self.mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)
+        
+        
+        time_e = time()
+        print("query time {}s".format(time_e - time_s))
+        time_s = time()
+        
         
         self.score_vec = []
         min_score = 1e10
@@ -119,6 +161,9 @@ class NNDAD(object):
                 min_score = score 
             self.score_vec.append(score)
         
+        time_e = time()
+        print("optimization of weights time {}s".format(time_e - time_s))
+        time_s = time()
         
         return self
     
@@ -179,34 +224,9 @@ class NNDAD(object):
     
     def compute_weights(self, beta):
         
-        potential_neighbors = len(beta)
-        current_index = 0
-        multiplier = beta[0]+1 
-        sum_beta = 0
-        sum_beta_square = 0
-
-        while ( current_index < potential_neighbors - 1 ) and ( multiplier > beta[current_index] ):
-            current_index +=1
-            
-            sum_beta += beta[current_index - 1]
-            sum_beta_square +=  beta[current_index - 1]**2
-            
-            if  current_index  + (sum_beta**2 - current_index * sum_beta_square) >= 0:
-                multiplier =  ( sum_beta + math.sqrt( current_index  + (sum_beta**2 - current_index * sum_beta_square) ) ) 
-                multiplier /= current_index
-            else:
-                current_index -= 1
-                break
-
-        estimated_weights = np.zeros(potential_neighbors)
-
-        for j in range(current_index):
-            estimated_weights[j] = multiplier - beta[j]
-
-
-        estimated_weights = estimated_weights / np.linalg.norm(estimated_weights, ord = 1)
+        return compute_weights(beta)
+        
     
-        return estimated_weights
 
     
     
