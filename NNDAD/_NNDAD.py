@@ -103,13 +103,14 @@ class NNDAD(object):
         metric = "euclidean",
         leaf_size = 40,
         max_samples_ratio = 1.,
+        parallel_num = 1,
         
     ):
         self.lamda_list = lamda_list
         self.metric = metric
         self.leaf_size = leaf_size
         self.max_samples_ratio = max_samples_ratio
-        
+        self.parallel_num = parallel_num
 
 
     def fit(self, X, y = None):
@@ -159,10 +160,10 @@ class NNDAD(object):
 #         time_s = time()
 
 
-        kfolder = KFold(n_splits = 30)
+        kfolder = KFold(n_splits = self.parallel_num)
         self.mean_k_distance_train = np.zeros(int(self.max_samples_ratio * self.n_train_))
         X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_)) for i, (_, test_index) in enumerate(kfolder.split(X))]
-        with Pool(30) as p:
+        with Pool(self.parallel_num) as p:
             dist_list = p.map(single_parallel, X_list)
                 
         for dist_vec in dist_list:
@@ -209,7 +210,7 @@ class NNDAD(object):
             Parameter names mapped to their values.
         """
         out = dict()
-        for key in ['lamda',"max_samples_ratio"]:
+        for key in ['lamda',"max_samples_ratio", "parallel_num"]:
             value = getattr(self, key, None)
             if deep and hasattr(value, 'get_params'):
                 deep_items = value.get_params().items()
