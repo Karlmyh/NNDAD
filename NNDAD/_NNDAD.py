@@ -280,8 +280,10 @@ class NNDAD(object):
     def density(self,X, y = None):
         
         vol_ball = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
-        numerator = np.sum(np.array([ ((i + 1)/ self.n_train_ )**self.dim_ for i in range(self.n_train_)]) * self.weights )**self.dim_
-        return numerator / vol_ball / (self.tree_.query(X, self.n_train_)[0] @ self.weights).ravel()
+        
+        numerator = np.sum(np.array([ ((i + 1)/ self.n_train_ )**(1/self.dim_) for i in range(int(self.max_samples_ratio * self.n_train_))]) * self.weights )**self.dim_
+        
+        return numerator / vol_ball / (self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0] @ self.weights).ravel()**self.dim_
     
    
     def score(self, X, y=None):
