@@ -8,6 +8,13 @@ import math
 from sklearn.neighbors import KDTree
 from time import time
 from numba import njit
+from sklearn.model_selection import KFold
+from multiprocessing import Pool
+
+def single_parallel(input_tuple):
+    kdtree, X, query_num = input_tuple
+    dist_vec = kdtree.query(X, query_num)[0].mean(axis = 0)
+    return dist_vec
 
 @njit
 def compute_weights(beta):
@@ -141,12 +148,31 @@ class NNDAD(object):
         self.vol_unitball_ = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
 
         
-        self.mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)
+#         self.mean_k_distance_train = np.zeros(int(self.max_samples_ratio * self.n_train_))
+#         for i, (_, test_index) in enumerate(kfolder.split(X)):
+#             self.mean_k_distance_train += self.tree_.query(X[test_index,:], int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)
         
+#         self.mean_k_distance_train /= self.n_train_
+        
+#         time_e = time()
+#         print("query time {}s".format(time_e - time_s))
+#         time_s = time()
+
+
+        kfolder = KFold(n_splits = 30)
+        self.mean_k_distance_train = np.zeros(int(self.max_samples_ratio * self.n_train_))
+        X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_)) for i, (_, test_index) in enumerate(kfolder.split(X))]
+        with Pool(30) as p:
+            dist_list = p.map(single_parallel, X_list)
+                
+        for dist_vec in dist_list:
+            self.mean_k_distance_train += dist_vec
+        self.mean_k_distance_train /= self.n_train_
         
         time_e = time()
         print("query time {}s".format(time_e - time_s))
         time_s = time()
+        
         
         
         self.score_vec = []
