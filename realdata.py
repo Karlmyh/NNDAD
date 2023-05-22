@@ -12,10 +12,11 @@ from sklearn.svm import OneClassSVM
 from sklearn.neighbors import KDTree
 from scipy.stats import rankdata
 from NNDAD import NNDAD
+from scipy.io import loadmat
+import mat73
 
-
-data_file_dir = "./dataset/anomaly/"
-method_seq = glob.glob("{}/*.csv".format(data_file_dir))
+data_file_dir = "./dataset/anomaly_raw/"
+method_seq = glob.glob("{}/*.mat".format(data_file_dir))
 data_file_name_seq = [os.path.split(method)[1] for method in method_seq]
 log_file_dir = "./results/anomaly_realdata/"
 
@@ -23,20 +24,33 @@ log_file_dir = "./results/anomaly_realdata/"
 for data_file_name in data_file_name_seq:
     print(data_file_name)
     data_file_path = os.path.join(data_file_dir, data_file_name)
-    data = pd.read_csv(data_file_path)
-    data = np.array(data)
-    X_train=data[:,:-1]
+    if data_file_name not in ["http.mat",]:
+        continue  
+    elif data_file_name in ["smtp.mat","http.mat"]:
+        data = mat73.loadmat(data_file_path)
+    else:
+        data = loadmat(data_file_path)
+    X_train = data["X"]
+    y_train = data["y"].reshape(-1)
     scaler = MinMaxScaler()
     X_train = scaler.fit_transform(X_train)
-    y_train=data[:,-1]
-    y_train=1-2*y_train
+#         y_train=1-2*y_train
+    X_train = X_train[:, np.logical_not(np.isclose(X_train.min(axis=0), X_train.max(axis=0)))]
+#     y_train=1-2*y_train
     log_file_name = "realdata.csv"
     log_file_path = os.path.join(log_file_dir, log_file_name)
     
     # nearest neighbor distance self-tuning
-    model_NNDAD = NNDAD( lamda_list = [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10]).fit(X_train)
+    if X_train.shape[0] < 20000:
+        model_NNDAD = NNDAD(lamda_list = [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10], parallel_num = 30).fit(X_train)
+    else:
+        model_NNDAD = NNDAD(max_samples_ratio = 0.05, lamda_list = [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10], parallel_num = 30).fit(X_train)
+    
+    print(X_train.shape[0], (model_NNDAD.weights > 0).sum())
+        
     scaler = MinMaxScaler()
-    y_pred = scaler.fit_transform( - model_NNDAD.predict(X_train).reshape(-1,1))
+    y_pred = scaler.fit_transform(  model_NNDAD.predict(X_train).reshape(-1,1))
+
     roc_auc = roc_auc_score(y_train, y_pred)
     
     with open(log_file_path, "a") as f:
@@ -44,63 +58,66 @@ for data_file_name in data_file_name_seq:
         f.writelines(logs)
        
     
+  
+    
     
     # weighted nearest neighbor distance
     roc_auc = 0
     for lamda in [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10]:
-        model_WNN = NNDAD( lamda_list = [lamda]).fit(X_train)
+        model_WNN = NNDAD(max_samples_ratio = 0.05, lamda_list = [lamda], parallel_num = 30).fit(X_train)
+        print(X_train.shape[0], (model_WNN.weights > 0).sum())
         scaler = MinMaxScaler()
-        y_pred = scaler.fit_transform( - model_WNN.predict(X_train).reshape(-1,1))
+        y_pred = scaler.fit_transform(  model_WNN.predict(X_train).reshape(-1,1))
         roc_auc = max(roc_auc, roc_auc_score(y_train,y_pred))
     with open(log_file_path, "a") as f:
         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"WNN", roc_auc)
         f.writelines(logs)
 
-    # IForest
-    roc_auc=0
-    for n_estimators in [100,300,500]:
-        model_IF=IsolationForest(random_state=1,n_estimators=n_estimators).fit(X_train,y_train)
-        scaler=MinMaxScaler()
-        y_pred=scaler.fit_transform(model_IF.decision_function(X_train).reshape(-1,1))
-        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-    with open(log_file_path, "a") as f:
-        logs= "{},{},{}\n".format(data_file_name.split(".")[0],"IF", roc_auc)
-        f.writelines(logs)
+#     # IForest
+#     roc_auc=0
+#     for n_estimators in [100,300,500]:
+#         model_IF=IsolationForest(random_state=1,n_estimators=n_estimators).fit(X_train,y_train)
+#         scaler=MinMaxScaler()
+#         y_pred=scaler.fit_transform(model_IF.decision_function(X_train).reshape(-1,1))
+#         roc_auc=max(roc_auc,roc_auc_score(y_train, - y_pred))
+#     with open(log_file_path, "a") as f:
+#         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"IF", roc_auc)
+#         f.writelines(logs)
 
-    # LOF
-    roc_auc=0
-    for n_neighbors in [5*i for i in range(1,11)]:
-        model_LOF=LocalOutlierFactor(n_neighbors=n_neighbors).fit(X_train,y_train)
-        scaler=MinMaxScaler()
-        y_pred=scaler.fit_transform(model_LOF.negative_outlier_factor_.reshape(-1,1))
-        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-    with open(log_file_path, "a") as f:
-        logs= "{},{},{}\n".format(data_file_name.split(".")[0],"LOF", roc_auc)
-        f.writelines(logs)
+#     # LOF
+#     roc_auc=0
+#     for n_neighbors in [20*i for i in range(1,11)]:
+#         model_LOF=LocalOutlierFactor(n_neighbors = n_neighbors).fit(X_train,y_train)
+#         scaler=MinMaxScaler()
+#         y_pred=scaler.fit_transform(model_LOF.negative_outlier_factor_.reshape(-1,1))
+#         roc_auc=max(roc_auc,roc_auc_score(y_train, - y_pred))
+#     with open(log_file_path, "a") as f:
+#         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"LOF", roc_auc)
+#         f.writelines(logs)
         
-    # OCSVM
-    roc_auc=0
-    for gamma in [1e-3,1e-2,1e-1,1,1e1]:
-        model_OCSVM=OneClassSVM(gamma=gamma).fit(X_train,y_train)
-        scaler=MinMaxScaler()
-        y_pred=scaler.fit_transform(model_OCSVM.decision_function(X_train).reshape(-1,1))
-        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-    with open(log_file_path, "a") as f:
-        logs= "{},{},{}\n".format(data_file_name.split(".")[0],"OCSVM", roc_auc)
-        f.writelines(logs)
+#     # OCSVM
+#     roc_auc=0
+#     for gamma in [1e-3,1e-2,1e-1,1,1e1]:
+#         model_OCSVM=OneClassSVM(gamma=gamma).fit(X_train,y_train)
+#         scaler=MinMaxScaler()
+#         y_pred=scaler.fit_transform(model_OCSVM.decision_function(X_train).reshape(-1,1))
+#         roc_auc=max(roc_auc,roc_auc_score(y_train, - y_pred))
+#     with open(log_file_path, "a") as f:
+#         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"OCSVM", roc_auc)
+#         f.writelines(logs)
         
-    # KNN
-    roc_auc=0
-    tree_KNN=KDTree(X_train)
-    for n_neighbors in [5*i for i in range(1,11)]:
-        distance_vec,_=tree_KNN.query(X_train,n_neighbors+1)
-        distance_vec=distance_vec[:,-1]
-        scaler=MinMaxScaler()
-        y_pred=scaler.fit_transform(-distance_vec.reshape(-1,1))
-        roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
-    with open(log_file_path, "a") as f:
-        logs= "{},{},{}\n".format(data_file_name.split(".")[0],"KNN", roc_auc)
-        f.writelines(logs)
+#     # KNN
+#     roc_auc=0
+#     tree_KNN=KDTree(X_train)
+#     for n_neighbors in [20*i for i in range(1,11)]:
+#         distance_vec,_=tree_KNN.query(X_train,n_neighbors+1)
+#         distance_vec=distance_vec[:,-1]
+#         scaler=MinMaxScaler()
+#         y_pred=scaler.fit_transform(distance_vec.reshape(-1,1))
+#         roc_auc=max(roc_auc,roc_auc_score(y_train,y_pred))
+#     with open(log_file_path, "a") as f:
+#         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"KNN", roc_auc)
+#         f.writelines(logs)
 
 
     

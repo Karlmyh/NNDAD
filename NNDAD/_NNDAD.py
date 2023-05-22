@@ -16,6 +16,12 @@ def single_parallel(input_tuple):
     dist_vec = kdtree.query(X, query_num)[0].mean(axis = 0)
     return dist_vec
 
+def single_parallel_matrix(input_tuple):
+    kdtree, X, query_num, weights = input_tuple
+    dist_matrix = kdtree.query(X, query_num)[0]
+    dist_vec = np.array([(dist_vector * weights).sum() for dist_vector in dist_matrix])
+    return dist_vec
+
 @njit
 def compute_weights(beta):
     potential_neighbors = len(beta)
@@ -149,15 +155,6 @@ class NNDAD(object):
         self.vol_unitball_ = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
 
         
-#         self.mean_k_distance_train = np.zeros(int(self.max_samples_ratio * self.n_train_))
-#         for i, (_, test_index) in enumerate(kfolder.split(X)):
-#             self.mean_k_distance_train += self.tree_.query(X[test_index,:], int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)
-        
-#         self.mean_k_distance_train /= self.n_train_
-        
-#         time_e = time()
-#         print("query time {}s".format(time_e - time_s))
-#         time_s = time()
 
 
         kfolder = KFold(n_splits = self.parallel_num)
@@ -272,9 +269,22 @@ class NNDAD(object):
         distance 
         
         """
-
-        weighted_distance = (self.tree_.query(X, self.n_train_)[0] @ self.weights).ravel()
-        return weighted_distance
+        
+       
+        self.train_sample_score = np.array([])
+        
+        kfolder = KFold(n_splits = self.parallel_num)
+        
+        X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_), self.weights) for i, (_, test_index) in enumerate(kfolder.split(X))]
+        with Pool(self.parallel_num) as p:
+            dist_list = p.map(single_parallel_matrix, X_list)
+                
+                
+        for dist_vec in dist_list:
+            self.train_sample_score = np.append(self.train_sample_score, dist_vec )
+        
+       
+        return self.train_sample_score
     
     
     def density(self,X, y = None):
@@ -316,7 +326,8 @@ class NNDAD(object):
         
         
         
-                
+#     def get_train_score(self):
+#         return (self.mean_k_distance_train * self.weights).sum()
                 
             
                 
