@@ -14,6 +14,7 @@ from multiprocessing import Pool
 def single_parallel(input_tuple):
     kdtree, X, query_num = input_tuple
     dist_vec = kdtree.query(X, query_num)[0].mean(axis = 0)
+    print("finished")
     return dist_vec
 
 def single_parallel_matrix(input_tuple):
@@ -110,13 +111,14 @@ class NNDAD(object):
         leaf_size = 40,
         max_samples_ratio = 1.,
         parallel_num = 1,
-        
+        data_fold = 2
     ):
         self.lamda_list = lamda_list
         self.metric = metric
         self.leaf_size = leaf_size
         self.max_samples_ratio = max_samples_ratio
         self.parallel_num = parallel_num
+        self.data_fold = data_fold
 
 
     def fit(self, X, y = None):
@@ -157,7 +159,7 @@ class NNDAD(object):
         
 
 
-        kfolder = KFold(n_splits = self.parallel_num)
+        kfolder = KFold(n_splits = self.data_fold)
         self.mean_k_distance_train = np.zeros(int(self.max_samples_ratio * self.n_train_))
         X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_)) for i, (_, test_index) in enumerate(kfolder.split(X))]
         with Pool(self.parallel_num) as p:
@@ -165,7 +167,7 @@ class NNDAD(object):
                 
         for dist_vec in dist_list:
             self.mean_k_distance_train += dist_vec
-        self.mean_k_distance_train /= self.n_train_
+        self.mean_k_distance_train /= len(dist_list)
         
         time_e = time()
         print("query time {}s".format(time_e - time_s))
@@ -273,7 +275,7 @@ class NNDAD(object):
        
         self.train_sample_score = np.array([])
         
-        kfolder = KFold(n_splits = self.parallel_num)
+        kfolder = KFold(n_splits = self.data_fold)
         
         X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_), self.weights) for i, (_, test_index) in enumerate(kfolder.split(X))]
         with Pool(self.parallel_num) as p:
