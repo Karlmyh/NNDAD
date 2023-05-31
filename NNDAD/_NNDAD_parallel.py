@@ -14,6 +14,7 @@ from multiprocessing import Pool
 def single_parallel(input_tuple):
     kdtree, X, query_num = input_tuple
     dist_vec = kdtree.query(X, query_num)[0].mean(axis = 0)
+    print("finished")
     return dist_vec
 
 def single_parallel_matrix(input_tuple):
@@ -54,7 +55,7 @@ def compute_weights(beta):
     return estimated_weights
 
 
-class NNDADDIST(object):
+class NNDAD(object):
     """NNDAD
 
     Read more in Nearest Neighbor Distance Anomaly Detection
@@ -108,14 +109,17 @@ class NNDADDIST(object):
         lamda_list = [1.0],
         metric = "euclidean",
         leaf_size = 40,
-        distributed_fold = 2,
-        thred_num = 5
+        max_samples_ratio = 1.,
+        parallel_num = 1,
+        data_fold = 2
     ):
         self.lamda_list = lamda_list
         self.metric = metric
         self.leaf_size = leaf_size
-        self.distributed_fold = distributed_fold
-        self.thred_num = thred_num
+        self.max_samples_ratio = max_samples_ratio
+        self.parallel_num = parallel_num
+        self.data_fold = data_fold
+
 
     def fit(self, X, y = None):
         """Fit the NNDAD on the data.
@@ -138,24 +142,11 @@ class NNDADDIST(object):
         """
 
         time_s = time()
-        # drop redundant points
-        X_divide = X[:int((X.shape[0] // self.distributed_fold ) * self.distributed_fold),:]
-        # divide the samples
-        kfolder = KFold(n_splits = self.distributed_fold)
-        X_divide_list = [X_divide[test_index] for i, (_, test_index) in enumerate(kfolder.split(X_divide))]
-        self.X_divide_list = X_divide_list
-        
-        
-        self.tree_list = []
-        for X_divide_single in X_divide_list:
-            tree_ = KDTree(
-            X_divide_single,
+        self.tree_ = KDTree(
+            X,
             metric = self.metric,
             leaf_size = self.leaf_size,
         )
-            self.tree_list.append(tree_)
-            
-  
         
         time_e = time()
         print("kd-tree time {}s".format(time_e - time_s))
@@ -164,16 +155,19 @@ class NNDADDIST(object):
         self.dim_ = X.shape[1]
         self.n_train_ = X.shape[0]
         self.vol_unitball_ = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
+
         
 
-        self.mean_k_distance_train = np.zeros( self.n_train_ // self.distributed_fold)
-        X_list = [(self.tree_list[i], X_divide_list[i], self.n_train_ // self.distributed_fold) for i in range(self.distributed_fold)]
-        with Pool(self.thred_num) as p:
+
+        kfolder = KFold(n_splits = self.data_fold)
+        self.mean_k_distance_train = np.zeros(int(self.max_samples_ratio * self.n_train_))
+        X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_)) for i, (_, test_index) in enumerate(kfolder.split(X))]
+        with Pool(self.parallel_num) as p:
             dist_list = p.map(single_parallel, X_list)
                 
         for dist_vec in dist_list:
             self.mean_k_distance_train += dist_vec
-        self.mean_k_distance_train /= self.n_train_
+        self.mean_k_distance_train /= len(dist_list)
         
         time_e = time()
         print("query time {}s".format(time_e - time_s))
@@ -215,7 +209,7 @@ class NNDADDIST(object):
             Parameter names mapped to their values.
         """
         out = dict()
-        for key in ['lamda',"max_samples_ratio", "distributed_fold"]:
+        for key in ['lamda',"max_samples_ratio", "parallel_num"]:
             value = getattr(self, key, None)
             if deep and hasattr(value, 'get_params'):
                 deep_items = value.get_params().items()
@@ -279,22 +273,29 @@ class NNDADDIST(object):
         """
         
        
-        self.train_sample_score = np.zeros(X.shape[0])
-        kfolder = KFold(n_splits = self.distributed_fold)
+        self.train_sample_score = np.array([])
         
-        predict_list = [(self.tree_list[i], X, self.n_train_ // self.distributed_fold, self.weights) for i, (_, test_index) in enumerate(kfolder.split(X))]
-        with Pool(self.thred_num) as p:
-            dist_list = p.map(single_parallel_matrix, predict_list)
+        kfolder = KFold(n_splits = self.data_fold)
+        
+        X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_), self.weights) for i, (_, test_index) in enumerate(kfolder.split(X))]
+        with Pool(self.parallel_num) as p:
+            dist_list = p.map(single_parallel_matrix, X_list)
                 
                 
         for dist_vec in dist_list:
-            self.train_sample_score +=  dist_vec 
+            self.train_sample_score = np.append(self.train_sample_score, dist_vec )
         
        
         return self.train_sample_score
     
     
-
+    def density(self,X, y = None):
+        
+        vol_ball = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
+        
+        numerator = np.sum(np.array([ ((i + 1)/ self.n_train_ )**(1/self.dim_) for i in range(int(self.max_samples_ratio * self.n_train_))]) * self.weights )**self.dim_
+        
+        return numerator / vol_ball / (self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0] @ self.weights).ravel()**self.dim_
     
    
     def score(self, X, y=None):

@@ -8,20 +8,9 @@ import math
 from sklearn.neighbors import KDTree
 from time import time
 from numba import njit
-from sklearn.model_selection import KFold
-from multiprocessing import Pool
 
-def single_parallel(input_tuple):
-    kdtree, X, query_num = input_tuple
-    dist_vec = kdtree.query(X, query_num)[0].mean(axis = 0)
-    print("finished")
-    return dist_vec
 
-def single_parallel_matrix(input_tuple):
-    kdtree, X, query_num, weights = input_tuple
-    dist_matrix = kdtree.query(X, query_num)[0]
-    dist_vec = np.array([(dist_vector * weights).sum() for dist_vector in dist_matrix])
-    return dist_vec
+
 
 @njit
 def compute_weights(beta):
@@ -109,16 +98,12 @@ class NNDAD(object):
         lamda_list = [1.0],
         metric = "euclidean",
         leaf_size = 40,
-        max_samples_ratio = 1.,
-        parallel_num = 1,
-        data_fold = 2
+        max_samples_ratio = 1,
     ):
         self.lamda_list = lamda_list
         self.metric = metric
         self.leaf_size = leaf_size
         self.max_samples_ratio = max_samples_ratio
-        self.parallel_num = parallel_num
-        self.data_fold = data_fold
 
 
     def fit(self, X, y = None):
@@ -149,7 +134,7 @@ class NNDAD(object):
         )
         
         time_e = time()
-        print("kd-tree time {}s".format(time_e - time_s))
+#         print("kd-tree time {}s".format(time_e - time_s))
         time_s = time()
         
         self.dim_ = X.shape[1]
@@ -159,18 +144,13 @@ class NNDAD(object):
         
 
 
-        kfolder = KFold(n_splits = self.data_fold)
-        self.mean_k_distance_train = np.zeros(int(self.max_samples_ratio * self.n_train_))
-        X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_)) for i, (_, test_index) in enumerate(kfolder.split(X))]
-        with Pool(self.parallel_num) as p:
-            dist_list = p.map(single_parallel, X_list)
+
+        self.mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)
                 
-        for dist_vec in dist_list:
-            self.mean_k_distance_train += dist_vec
-        self.mean_k_distance_train /= len(dist_list)
+        
         
         time_e = time()
-        print("query time {}s".format(time_e - time_s))
+#         print("query time {}s".format(time_e - time_s))
         time_s = time()
         
         
@@ -188,7 +168,7 @@ class NNDAD(object):
             self.score_vec.append(score)
         
         time_e = time()
-        print("optimization of weights time {}s".format(time_e - time_s))
+#         print("optimization of weights time {}s".format(time_e - time_s))
         time_s = time()
         
         return self
@@ -271,23 +251,8 @@ class NNDAD(object):
         distance 
         
         """
-        
        
-        self.train_sample_score = np.array([])
-        
-        kfolder = KFold(n_splits = self.data_fold)
-        
-        X_list = [(self.tree_, X[test_index,:], int(self.max_samples_ratio * self.n_train_), self.weights) for i, (_, test_index) in enumerate(kfolder.split(X))]
-        with Pool(self.parallel_num) as p:
-            dist_list = p.map(single_parallel_matrix, X_list)
-                
-                
-        for dist_vec in dist_list:
-            self.train_sample_score = np.append(self.train_sample_score, dist_vec )
-        
-       
-        return self.train_sample_score
-    
+        return (self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0] @ self.weights).ravel()
     
     def density(self,X, y = None):
         
@@ -328,9 +293,7 @@ class NNDAD(object):
         
         
         
-#     def get_train_score(self):
-#         return (self.mean_k_distance_train * self.weights).sum()
-                
+  
             
                 
         
