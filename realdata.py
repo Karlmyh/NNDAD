@@ -15,7 +15,7 @@ from NNDAD import NNDAD, NNDADDIST
 from scipy.io import loadmat
 import mat73
 
-data_file_dir = "./dataset/anomaly_raw/"
+data_file_dir = "./dataset/ODDS/"
 method_seq = glob.glob("{}/*.mat".format(data_file_dir))
 data_file_name_seq = [os.path.split(method)[1] for method in method_seq]
 log_file_dir = "./results/anomaly_realdata/"
@@ -23,8 +23,11 @@ log_file_dir = "./results/anomaly_realdata/"
   
 data_file_name_seq = [ 
 #     'satellite.mat',
+#     'speech.mat',
+#     'heart.mat',
+    'mulcross.mat',
 #  'http.mat',
- 'wine.mat',
+#  'wine.mat',
 #  'smtp.mat',
 #  'vowels.mat',
 #  'ionosphere.mat',
@@ -128,17 +131,17 @@ for data_file_name in data_file_name_seq:
   
     
     
-    # weighted nearest neighbor distance
-    roc_auc = 0
-    for lamda in [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10]:
-        model_WNN = NNDAD( lamda_list = [lamda], max_samples_ratio = 1).fit(X_train)
-        print(X_train.shape[0], (model_WNN.weights > 0).sum())
-        scaler = MinMaxScaler()
-        y_pred = scaler.fit_transform(  model_WNN.predict(X_train).reshape(-1,1))
-        roc_auc = max(roc_auc, roc_auc_score(y_train,y_pred))
-    with open(log_file_path, "a") as f:
-        logs= "{},{},{}\n".format(data_file_name.split(".")[0],"WNN", roc_auc)
-        f.writelines(logs)
+#     # weighted nearest neighbor distance
+#     roc_auc = 0
+#     for lamda in [0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10]:
+#         model_WNN = NNDAD( lamda_list = [lamda], max_samples_ratio = 1).fit(X_train)
+#         print(X_train.shape[0], (model_WNN.weights > 0).sum())
+#         scaler = MinMaxScaler()
+#         y_pred = scaler.fit_transform(  model_WNN.predict(X_train).reshape(-1,1))
+#         roc_auc = max(roc_auc, roc_auc_score(y_train,y_pred))
+#     with open(log_file_path, "a") as f:
+#         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"WNN", roc_auc)
+#         f.writelines(logs)
 
 #     # IForest
 #     roc_auc=0
@@ -153,7 +156,7 @@ for data_file_name in data_file_name_seq:
 
 #     # LOF
 #     roc_auc=0
-#     for n_neighbors in [50*i for i in range(1,21)]:
+#     for n_neighbors in [10 + 50*i for i in range(1,21)]:
 #         model_LOF=LocalOutlierFactor(n_neighbors = n_neighbors).fit(X_train,y_train)
 #         scaler=MinMaxScaler()
 #         y_pred=scaler.fit_transform(model_LOF.negative_outlier_factor_.reshape(-1,1))
@@ -176,7 +179,9 @@ for data_file_name in data_file_name_seq:
 #     # KNN
 #     roc_auc=0
 #     tree_KNN=KDTree(X_train)
-#     for n_neighbors in [50*i for i in range(1,21)]:
+#     for n_neighbors in [10 + 50*i for i in range(1,21)]:
+#         if n_neighbors > X_train.shape[0]:
+#             continue
 #         distance_vec,_=tree_KNN.query(X_train,n_neighbors+1)
 #         distance_vec=distance_vec[:,-1]
 #         scaler=MinMaxScaler()

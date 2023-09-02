@@ -1,4 +1,4 @@
 from ._NNDAD import NNDAD
-from ._NNDAD_parallel import NNDAD as NNDADDIST
+from ._BNNDAD import BNNDAD
 
-__all__=["NNDAD", "NNDADDIST"]
+__all__ = ["NNDAD", "BNNDAD"]

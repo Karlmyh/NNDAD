@@ -18,12 +18,41 @@ from itertools import product
 import mat73
 
 
-data_file_dir = "./dataset/anomaly_raw/"
-method_seq = glob.glob("{}/*.mat".format(data_file_dir))
-data_file_name_seq = [os.path.split(method)[1] for method in method_seq]
+data_file_name_seq = [ 
+#     'satellite.mat',
+#     'speech.mat',
+    'heart.mat',
+#     'mulcross.mat',
+#  'http.mat',
+#  'wine.mat',
+#  'smtp.mat',
+#  'vowels.mat',
+#  'ionosphere.mat',
+#  'arrhythmia.mat',
+#  'glass.mat',
+#  'thyroid.mat',
+#  'cardio.mat',
+#  'shuttle.mat',
+#  'breastw.mat',
+#  'letter.mat',
+#  'optdigits.mat',
+#  'vertebral.mat',
+#  'lympho.mat',
+#  'mammography.mat',
+#  'musk.mat',
+#  'wbc.mat',
+#  'annthyroid.mat',
+#  'cover.mat',
+#  'satimage-2.mat',
+#  'mnist.mat',
+#  'pima.mat',
+#  'pendigits.mat'
+                     ]
+
+data_file_dir = "./dataset/ODDS/"
 log_file_dir = "./results/anomaly_realdata/"
 
-  
+
 for data_file_name in data_file_name_seq:
     print(data_file_name)
     
@@ -45,7 +74,7 @@ for data_file_name in data_file_name_seq:
         print(e)
 
     
-    # pidforest 
+#     # pidforest 
     
 #     roc_auc=0
 #     n_samples_seq = [50, 100, 200, 400]
@@ -103,7 +132,7 @@ for data_file_name in data_file_name_seq:
     with open(log_file_path, "a") as f:
         logs= "{},{},{}\n".format(data_file_name.split(".")[0],"DTM", roc_auc)
         f.writelines(logs)
-  
+
 
     
    

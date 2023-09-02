@@ -22,10 +22,8 @@ def compute_weights(beta):
 
     while ( current_index < potential_neighbors - 1 ) and ( multiplier > beta[current_index] ):
         current_index +=1
-
         sum_beta += beta[current_index - 1]
         sum_beta_square +=  beta[current_index - 1]**2
-
         if  current_index  + (sum_beta**2 - current_index * sum_beta_square) >= 0:
             multiplier =  ( sum_beta + math.sqrt( current_index  + (sum_beta**2 - current_index * sum_beta_square) ) ) 
             multiplier /= current_index
@@ -34,20 +32,14 @@ def compute_weights(beta):
             break
 
     estimated_weights = np.zeros(potential_neighbors)
-
     for j in range(current_index):
         estimated_weights[j] = multiplier - beta[j]
-
-
     estimated_weights = estimated_weights / np.linalg.norm(estimated_weights, ord = 1)
-    
     return estimated_weights
 
 
 class NNDAD(object):
-    """NNDAD
-
-    Read more in Nearest Neighbor Distance Anomaly Detection
+    """Regularized Nearest Neighbor Density for Anomaly Detection.
 
     Parameters
     ----------
@@ -64,8 +56,11 @@ class NNDAD(object):
     leaf_size : int, default = 40.
         KDTree parameters. 
         
-    max_samples_ratio : float in [0,1], default = 1
-        Portion of distances to consider. 
+    max_samples_ratio : float in [0,1], default = 1.
+        Portion of samples to consider when solving the optimization problem. 
+        
+    bagging_round : int, default = 1.
+        Potential bagging round, influence the the optimization object.
         
     Attributes
     ----------
@@ -99,15 +94,16 @@ class NNDAD(object):
         metric = "euclidean",
         leaf_size = 40,
         max_samples_ratio = 1,
+        bagging_round = 1,
     ):
         self.lamda_list = lamda_list
         self.metric = metric
         self.leaf_size = leaf_size
         self.max_samples_ratio = max_samples_ratio
-
+        self.bagging_round = bagging_round
 
     def fit(self, X, y = None):
-        """Fit the NNDAD on the data.
+        """Fit the weighted nearest neighbor model on data.
 
         Parameters
         ----------
@@ -119,58 +115,52 @@ class NNDAD(object):
             Ignored. This parameter exists only for compatibility with
             :class:`~sklearn.pipeline.Pipeline`.
             
+        Attributes
+        ----------
+        n_train_ : int.
+            Number of training instances.
+
+        tree_ : "KDTree" instance.
+            The tree algorithm for fast generalized N-point problems.
+
+        dim_ : int.
+            Number of features.
+
+        vol_unitball_ : float.
+            Volume of dim_ dimensional unit ball.
+
+        weights : array-like of shape (n_train_, ).
+            Estimated weights of nearest_distances.
      
         Returns
         -------
-        self : object
+        self : object.
             Returns the instance itself.
         """
 
-        time_s = time()
         self.tree_ = KDTree(
             X,
             metric = self.metric,
             leaf_size = self.leaf_size,
         )
         
-        time_e = time()
-#         print("kd-tree time {}s".format(time_e - time_s))
-        time_s = time()
-        
         self.dim_ = X.shape[1]
         self.n_train_ = X.shape[0]
         self.vol_unitball_ = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
+        self.mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)  
 
-        
-
-
-
-        self.mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)
-                
-        
-        
-        time_e = time()
-#         print("query time {}s".format(time_e - time_s))
-        time_s = time()
-        
-        
-        
         self.score_vec = []
-        min_score = 1e10
+        min_score = np.inf
         for lamda in self.lamda_list:
             weights =  self.compute_weights( self.mean_k_distance_train / lamda )
-            score = (weights * self.mean_k_distance_train).sum() + np.sqrt(np.log(self.n_train_)) * np.linalg.norm(weights)
+            score = self.compute_score(self.mean_k_distance_train, weights)
             if score < min_score:
                 self.best_score = score
                 self.lamda = lamda
                 self.weights = weights
                 min_score = score 
             self.score_vec.append(score)
-        
-        time_e = time()
-#         print("optimization of weights time {}s".format(time_e - time_s))
-        time_s = time()
-        
+
         return self
     
     
@@ -189,7 +179,8 @@ class NNDAD(object):
             Parameter names mapped to their values.
         """
         out = dict()
-        for key in ['lamda',"max_samples_ratio", "parallel_num"]:
+        for key in ['lamda_list',"metric", "leaf_size",
+                   'max_samples_ratio', 'bagging_round']:
             value = getattr(self, key, None)
             if deep and hasattr(value, 'get_params'):
                 deep_items = value.get_params().items()
@@ -224,19 +215,38 @@ class NNDAD(object):
                                  (key, self))
             setattr(self, key, value)
             valid_params[key] = value
-
         return self
     
-    
     def compute_weights(self, beta):
+        '''
+        Return optimized weights of given beta. 
         
+        Parameters
+        ----------
+        beta : array-like of shape (max_samples_ratio * n_train_, )
+            
+        Returns
+        -------
+        weights : array-like of shape (max_samples_ratio * n_train_, )
+        '''
         return compute_weights(beta)
+    
+    def compute_score(self, distance, weight):
+        '''
+        Return score of default empirical risk upper bound. 
         
-    
+        Parameters
+        ----------
+        distance : array-like of shape (max_samples_ratio * n_train_, )
+        
+        weights : array-like of shape (max_samples_ratio * n_train_, )
+            
+        Returns
+        -------
+        score : float
+        '''
+        return (distance * weight).sum() + np.linalg.norm(self.weights) * np.log(self.n_train_)**0.5 / self.bagging_round**0.5 
 
-    
-    
-    
     def predict(self, X, y = None):
         """Compute the weighted k nearest neighbor distance. 
         
@@ -248,24 +258,16 @@ class NNDAD(object):
 
         Returns
         -------
-        distance 
+        distance : float
         
         """
-       
-        return (self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0] @ self.weights).ravel()
+        distance = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0]
+        return (distance @ self.weights).ravel()
     
-    def density(self,X, y = None):
+    def density(self, X, y = None):
+        """Compute the density estimation corresponding to the optimized empirical risk 
+        upper bound minimized weights.
         
-        vol_ball = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
-        
-        numerator = np.sum(np.array([ ((i + 1)/ self.n_train_ )**(1/self.dim_) for i in range(int(self.max_samples_ratio * self.n_train_))]) * self.weights )**self.dim_
-        
-        return numerator / vol_ball / (self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0] @ self.weights).ravel()**self.dim_
-    
-   
-    def score(self, X, y=None):
-        """Compute the ERUBM
-
         Parameters
         ----------
         X : array-like of shape (n_test, dim_)
@@ -279,17 +281,52 @@ class NNDAD(object):
         Returns
         -------
         score : float
-            
         """
+        numerator = np.array([ ((i + 1)/ self.n_train_ )**(1 / self.dim_) * self.weights[i]
+                  for i in range(int(self.max_samples_ratio * self.n_train_))])
+        numerator = numerator.sum()**self.dim_
+
+        return numerator / self.vol_unitball_ / self.predict(X)**self.dim_
+    
+   
+    def score(self, X, y=None):
+        """Compute the minimized empirical risk upper bound.
         
+        Parameters
+        ----------
+        X : array-like of shape (n_test, dim_)
+            List of n_test-dimensional data points.  Each row
+            corresponds to a single data point.
+
+        y : None
+            Ignored. This parameter exists only for compatibility with
+            :class:`~sklearn.pipeline.Pipeline`.
+
+        Returns
+        -------
+        score : float
+        """
         return self.best_score
     
     def ERUB(self, X):
         '''
-        return the erub of X
-        '''
+        Return the optimized empirical risk upper bound of X.
         
-        return self.predict(X) + np.linalg.norm(self.weights) * np.sqrt(np.log(self.weights.shape[0]))
+        Parameters
+        ----------
+        X : array-like of shape (n_test, dim_)
+            List of n_test-dimensional data points.  Each row
+            corresponds to a single data point.
+
+        y : None
+            Ignored. This parameter exists only for compatibility with
+            :class:`~sklearn.pipeline.Pipeline`.
+
+        Returns
+        -------
+        score : float
+        '''
+        return self.best_score
         
         
         
