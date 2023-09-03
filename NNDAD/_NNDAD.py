@@ -144,8 +144,7 @@ class NNDAD(object):
             leaf_size = self.leaf_size,
         )
         
-        self.dim_ = X.shape[1]
-        self.n_train_ = X.shape[0]
+        self.n_train_, self.dim_ = X.shape
         self.vol_unitball_ = math.pi**(self.dim_/2)/math.gamma(self.dim_/2+1)
         self.mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)  
 
@@ -245,7 +244,7 @@ class NNDAD(object):
         -------
         score : float
         '''
-        return (distance * weight).sum() + np.linalg.norm(self.weights) * np.log(self.n_train_)**0.5 / self.bagging_round**0.5 
+        return (distance * weight).sum() + np.linalg.norm(weight) * np.log(self.n_train_)**0.5 / self.bagging_round**0.5 
 
     def predict(self, X, y = None):
         """Compute the weighted k nearest neighbor distance. 
@@ -306,27 +305,10 @@ class NNDAD(object):
         -------
         score : float
         """
-        return self.best_score
-    
-    def ERUB(self, X):
-        '''
-        Return the optimized empirical risk upper bound of X.
+        mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)  
         
-        Parameters
-        ----------
-        X : array-like of shape (n_test, dim_)
-            List of n_test-dimensional data points.  Each row
-            corresponds to a single data point.
-
-        y : None
-            Ignored. This parameter exists only for compatibility with
-            :class:`~sklearn.pipeline.Pipeline`.
-
-        Returns
-        -------
-        score : float
-        '''
-        return self.best_score
+        return self.compute_score(mean_k_distance_train, self.weights)
+   
         
         
         
