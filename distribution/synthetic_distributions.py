@@ -31,7 +31,7 @@ class TestDistribution(object):
         
     
         density_seq = [density1, density2]
-        prob_seq = [0.4,0.6]
+        prob_seq = [0.5,0.5]
         densitymix = MixedDistribution(density_seq, prob_seq)
         return densitymix
     

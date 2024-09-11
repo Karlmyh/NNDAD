@@ -307,16 +307,11 @@ class NNDAD(object):
         """
         mean_k_distance_train = self.tree_.query(X, int(self.max_samples_ratio * self.n_train_))[0].mean(axis = 0)  
         
+        
         return self.compute_score(mean_k_distance_train, self.weights)
    
         
-        
-        
-  
-            
-                
-        
-        
+
         
     
     
