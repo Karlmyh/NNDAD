@@ -173,6 +173,10 @@ class BNNDAD(object):
             valid_params[key] = value
         return self
     
+    def score(self, X):
+        return self.estimators[0].score(X)
+
+    
 
 def base_fit(X, max_samples, random_seed, lamda_list, bagging_round):
     resample_X = resample(X,
